@@ -1,0 +1,7 @@
+{
+  "tool_name": "Bash",
+  "tool_input_preview": "{\"command\":\"cd /Users/volodymyrpavlyshyn/Documents/work/causal-canvas\\nrm -rf /tmp/cc-shot/site\\npnpm exec prettier --write docs/index.html docs/assets/styles.css >/dev/null 2>&1\\npnpm run format:chec...",
+  "error": "Exit code 1\n[ELIFECYCLE] Command failed with exit code 1.\n=== code blocks survived formatting? ===\next install causaljson.causal-canvas\nnpm install -g @vpavlyshyn/cli\nnpx @vpavlyshyn/cli lint model.causal.json\n=== no external resource loads (only hyperlinks) ===\nAll checks passed\n=== links that will 404 until you publish ===\n(eval):13: no matches found: https://marketplace.visualstudio.com/items?itemName=causaljson.causal-canvas",
+  "timestamp": "2026-08-31T15:32:26.114Z",
+  "retry_count": 1
+}
