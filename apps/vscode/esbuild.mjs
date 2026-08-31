@@ -16,6 +16,11 @@ const host = {
   platform: 'node',
   target: 'node20',
   format: 'cjs',
+  // Node's default field order picks UMD builds whose factories call a
+  // passed-through require() for their own submodules. esbuild cannot follow
+  // those, so they survive into the bundle and throw on load — which the host
+  // reports as "command not found". Prefer the statically analysable ESM build.
+  mainFields: ['module', 'main'],
   // Provided by the extension host at runtime, never bundled.
   external: ['vscode', '@resvg/resvg-js'],
   sourcemap: true,

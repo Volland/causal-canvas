@@ -48,3 +48,13 @@ Rendering the same document and view twice produces identical bytes, so figures 
 ### Pins survive model growth
 
 Adding an unpinned variable never moves a pinned one, so growing a model does not invalidate hand-placed coordinates. See [[rendering#Figure Rendering#Layout Model]].
+
+## Packaging guarantees
+
+Properties of the shipped extension bundle rather than of the code inside it, because a bundle that cannot be loaded fails silently.
+
+### The shipped bundle loads
+
+`dist/extension.cjs` loads under a plain CommonJS require and exports `activate`. See [[extension#Causal Canvas extension#Commands]].
+
+A dependency resolved to a UMD build calls a passed-through `require()` for its own submodules; esbuild cannot follow those, so they survive into the bundle and throw on load. VS Code reports that only as `command 'causalCanvas.newModel' not found`, so no other test catches it.
