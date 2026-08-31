@@ -1,153 +1,194 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="en">
-<head>
-<meta charset="utf-8">
-<meta name="viewport" content="width=device-width, initial-scale=1">
-<title>Causal Canvas — causal models as JSON, edited in VS Code</title>
-<meta name="description" content="A JSON-native format for causal models with a visual editor in VS Code, a linter that catches causal inference errors, and publication figures you can rebuild in CI. Fully local. No telemetry.">
-<link rel="icon" href="assets/favicon.svg" type="image/svg+xml">
-<link rel="stylesheet" href="assets/styles.css">
-</head>
-<body>
-
-<header class="site">
-  <div class="wrap">
-    <a class="brand" href="./"><img src="assets/favicon.svg" alt="">Causal Canvas</a>
-    <nav>
-      <a href="#what">What it does</a>
-      <a href="#agents">For agents</a>
-      <a href="#cli">CLI</a>
-      <a href="#format">Format</a>
-      <a href="#privacy">Privacy</a>
-    </nav>
-  </div>
-</header>
-
-<main>
-
-<div class="wrap hero">
-  <span class="kicker">CausalJSON · Apache-2.0</span>
-  <h1>Draw causal models in VS&nbsp;Code.<br>Ship the JSON.</h1>
-  <p class="lede">
-    Causal Canvas is a visual editor for causal models whose real output is a
-    plain, schema-validated JSON file — not a picture. The diagram is a
-    projection you can throw away and regenerate. The model is the asset.
-  </p>
-  <p class="lede">
-    It also knows what a causal model <em>means</em>: it will tell you when
-    you are adjusting for a collider, when an instrument violates the exclusion
-    restriction, and when your exposure has no path to your outcome at all.
-  </p>
-  <div class="cta">
-    <a class="btn primary" href="#start">Get started</a>
-    <a class="btn" href="#cli">See the CLI</a>
-    <a class="btn" href="#privacy">Privacy</a>
-  </div>
-</div>
-
-<div class="wrap">
-  <figure class="shot">
-    <img src="assets/editor.png"
-         alt="The Causal Canvas editor open on a causal model. Four variables — maternal smoking, birth weight, congenital defect, infant mortality — are laid out on a canvas, with birth weight outlined in red. The Problems panel reports that adjusting for birth weight conditions on a collider.">
-    <figcaption>
-      The birth weight paradox, caught. Adjusting for birth weight looks
-      reasonable and makes maternal smoking appear <em>protective</em> — because
-      birth weight is a collider. Causal Canvas reports the exact path that
-      opens, at the exact line.
-    </figcaption>
-  </figure>
-</div>
-
-<section id="what">
-  <div class="wrap">
-    <h2>What it does</h2>
-    <p class="sub">Four things, over one file.</p>
-    <div class="grid">
-      <div class="card">
-        <h3>A format, not a drawing</h3>
-        <p>Models are <code>.causal.json</code>: JSON&nbsp;Schema-validated, JSON-LD-native, diffable, and readable by anything. Layout lives in named views, so moving a box never dirties the meaning.</p>
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Causal Canvas — causal models as JSON, edited in VS Code</title>
+    <meta
+      name="description"
+      content="A JSON-native format for causal models with a visual editor in VS Code, a linter that catches causal inference errors, and publication figures you can rebuild in CI. Fully local. No telemetry."
+    />
+    <link rel="icon" href="assets/favicon.svg" type="image/svg+xml" />
+    <link rel="apple-touch-icon" href="assets/icon.png" />
+    <link rel="stylesheet" href="assets/styles.css" />
+  </head>
+  <body>
+    <header class="site">
+      <div class="wrap">
+        <a class="brand" href="./"><img src="assets/favicon.svg" alt="" />Causal Canvas</a>
+        <nav>
+          <a href="#what">What it does</a>
+          <a href="#agents">For agents</a>
+          <a href="#cli">CLI</a>
+          <a href="#format">Format</a>
+          <a href="#privacy">Privacy</a>
+        </nav>
       </div>
-      <div class="card">
-        <h3>A visual editor</h3>
-        <p>A custom editor over the file text itself. Drag variables, draw relations, switch views. Undo, save, and git behave exactly as they do for any other file.</p>
-      </div>
-      <div class="card">
-        <h3>A causal linter</h3>
-        <p>Collider adjustment, invalid instruments, unidentifiable latents, missing causal paths — reported in the Problems panel at the member that caused them.</p>
-      </div>
-      <div class="card">
-        <h3>Publication figures</h3>
-        <p>SVG, vector PDF, and PNG from the same model. Byte-identical across runs, so figures are build artifacts your manuscript regenerates in CI.</p>
-      </div>
-    </div>
+    </header>
 
-    <h3>Figures come out of the model, not a drawing tool</h3>
-    <p>A view is a query over the model — a subset, a filter, a layout, a theme.
-       Change the model, rebuild, and every figure that depends on it updates.</p>
-    <div class="figrow">
-      <div class="figbox">
-        <img src="assets/frontdoor.svg" alt="A causal diagram: smoking points to tar, tar points to lung cancer, and a dashed double-headed arrow connects smoking and lung cancer.">
-        <div class="cap">Front-door structure. The dashed bidirected edge is confounding nobody measured.</div>
+    <main>
+      <div class="wrap hero">
+        <span class="kicker">CausalJSON · Apache-2.0</span>
+        <h1>Draw causal models in VS&nbsp;Code.<br />Ship the JSON.</h1>
+        <p class="lede">
+          Causal Canvas is a visual editor for causal models whose real output is a plain,
+          schema-validated JSON file — not a picture. The diagram is a projection you can throw away
+          and regenerate. The model is the asset.
+        </p>
+        <p class="lede">
+          It also knows what a causal model <em>means</em>: it will tell you when you are adjusting
+          for a collider, when an instrument violates the exclusion restriction, and when your
+          exposure has no path to your outcome at all.
+        </p>
+        <div class="cta">
+          <a class="btn primary" href="#start">Get started</a>
+          <a class="btn" href="#cli">See the CLI</a>
+          <a class="btn" href="#privacy">Privacy</a>
+        </div>
       </div>
-      <div class="figbox">
-        <img src="assets/instrument.svg" alt="A causal diagram: a statutory minimum wage change points to labour cost per hour, which points to employment level. Local product demand points to both labour cost and employment.">
-        <div class="cap">An instrumental-variable design. The linter checks the exclusion restriction for you.</div>
+
+      <div class="wrap">
+        <figure class="shot">
+          <img
+            src="assets/editor.png"
+            alt="The Causal Canvas editor open on a causal model. Four variables — maternal smoking, birth weight, congenital defect, infant mortality — are laid out on a canvas, with birth weight outlined in red. The Problems panel reports that adjusting for birth weight conditions on a collider."
+          />
+          <figcaption>
+            The birth weight paradox, caught. Adjusting for birth weight looks reasonable and makes
+            maternal smoking appear <em>protective</em> — because birth weight is a collider. Causal
+            Canvas reports the exact path that opens, at the exact line.
+          </figcaption>
+        </figure>
       </div>
-      <div class="figbox">
-        <img src="assets/loops.svg" alt="A cyclic causal loop diagram connecting workload, stress, defect rate, rework, sick leave, and team capacity.">
-        <div class="cap">A causal loop diagram — cycles are legal in the <code>cld</code> profile.</div>
-      </div>
-    </div>
-  </div>
-</section>
 
-<section id="agents">
-  <div class="wrap">
-    <h2>Why causal models matter now</h2>
-    <p class="sub">Because agents have started acting, and acting is not predicting.</p>
+      <section id="what">
+        <div class="wrap">
+          <h2>What it does</h2>
+          <p class="sub">Four things, over one file.</p>
+          <div class="grid">
+            <div class="card">
+              <h3>A format, not a drawing</h3>
+              <p>
+                Models are <code>.causal.json</code>: JSON&nbsp;Schema-validated, JSON-LD-native,
+                diffable, and readable by anything. Layout lives in named views, so moving a box
+                never dirties the meaning.
+              </p>
+            </div>
+            <div class="card">
+              <h3>A visual editor</h3>
+              <p>
+                A custom editor over the file text itself. Drag variables, draw relations, switch
+                views. Undo, save, and git behave exactly as they do for any other file.
+              </p>
+            </div>
+            <div class="card">
+              <h3>A causal linter</h3>
+              <p>
+                Collider adjustment, invalid instruments, unidentifiable latents, missing causal
+                paths — reported in the Problems panel at the member that caused them.
+              </p>
+            </div>
+            <div class="card">
+              <h3>Publication figures</h3>
+              <p>
+                SVG, vector PDF, and PNG from the same model. Byte-identical across runs, so figures
+                are build artifacts your manuscript regenerates in CI.
+              </p>
+            </div>
+          </div>
 
-    <p>
-      A language model is superb at correlation. Ask it what tends to accompany
-      what, and it will tell you accurately, because that is what its training
-      distribution encodes. Ask it what would happen <em>if you intervened</em>,
-      and it will answer in the same confident register — but that is a
-      different question, and text alone does not contain the answer.
-    </p>
-    <p>
-      This stops being academic the moment an agent stops summarising and starts
-      deciding. "Should we change the pricing rule?" "Will adding this step
-      reduce churn?" "What caused the regression?" Every one of those is an
-      intervention or a counterfactual, and getting them wrong does not look
-      like a hallucination. It looks like a plausible recommendation.
-    </p>
+          <h3>Figures come out of the model, not a drawing tool</h3>
+          <p>
+            A view is a query over the model — a subset, a filter, a layout, a theme. Change the
+            model, rebuild, and every figure that depends on it updates.
+          </p>
+          <div class="figrow">
+            <div class="figbox">
+              <img
+                src="assets/frontdoor.svg"
+                alt="A causal diagram: smoking points to tar, tar points to lung cancer, and a dashed double-headed arrow connects smoking and lung cancer."
+              />
+              <div class="cap">
+                Front-door structure. The dashed bidirected edge is confounding nobody measured.
+              </div>
+            </div>
+            <div class="figbox">
+              <img
+                src="assets/instrument.svg"
+                alt="A causal diagram: a statutory minimum wage change points to labour cost per hour, which points to employment level. Local product demand points to both labour cost and employment."
+              />
+              <div class="cap">
+                An instrumental-variable design. The linter checks the exclusion restriction for
+                you.
+              </div>
+            </div>
+            <div class="figbox">
+              <img
+                src="assets/loops.svg"
+                alt="A cyclic causal loop diagram connecting workload, stress, defect rate, rework, sick leave, and team capacity."
+              />
+              <div class="cap">
+                A causal loop diagram — cycles are legal in the <code>cld</code> profile.
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
 
-    <h3>The three ways it goes wrong are all structural</h3>
-    <ul class="checks">
-      <li><strong>Confounding.</strong> Something drives both cause and effect, and nobody wrote it down. The correlation is real; the advice is wrong.</li>
-      <li><strong>Colliders.</strong> Controlling for the wrong variable <em>creates</em> a spurious association. This is the failure that makes low birth weight look protective against infant mortality — the one on the screenshot above.</li>
-      <li><strong>Mediators.</strong> Adjusting for a step on the causal path erases the very effect you were trying to measure.</li>
-    </ul>
-    <p>
-      None of these is detectable in the data or in the prose. They are
-      properties of the <em>structure</em> — which means they are detectable
-      once the structure is written down in a form a machine can read.
-    </p>
+      <section id="agents">
+        <div class="wrap">
+          <h2>Why causal models matter now</h2>
+          <p class="sub">Because agents have started acting, and acting is not predicting.</p>
 
-    <h3>What a causal model gives an agent that retrieval cannot</h3>
-    <p>
-      A knowledge graph stores facts. A causal model stores <em>mechanism</em>:
-      not "these two things co-occur" but "this one moves that one, and here is
-      what you must hold fixed to see it." That is a structure an agent can be
-      checked against rather than merely prompted with.
-    </p>
-    <p>
-      And because it is machine-checkable, an agent can be <em>wrong in a
-      detectable way</em>. That is the property that makes automation safe. An
-      agent that proposes sixty edges from a literature sweep is useful only if
-      you can tell which sixty you actually vouched for — so every relation can
-      carry its own provenance:
-    </p>
-<pre><code>{ "from": "genotype", "to": "cancer", "kind": "bidirected",
+          <p>
+            A language model is superb at correlation. Ask it what tends to accompany what, and it
+            will tell you accurately, because that is what its training distribution encodes. Ask it
+            what would happen <em>if you intervened</em>, and it will answer in the same confident
+            register — but that is a different question, and text alone does not contain the answer.
+          </p>
+          <p>
+            This stops being academic the moment an agent stops summarising and starts deciding.
+            "Should we change the pricing rule?" "Will adding this step reduce churn?" "What caused
+            the regression?" Every one of those is an intervention or a counterfactual, and getting
+            them wrong does not look like a hallucination. It looks like a plausible recommendation.
+          </p>
+
+          <h3>The three ways it goes wrong are all structural</h3>
+          <ul class="checks">
+            <li>
+              <strong>Confounding.</strong> Something drives both cause and effect, and nobody wrote
+              it down. The correlation is real; the advice is wrong.
+            </li>
+            <li>
+              <strong>Colliders.</strong> Controlling for the wrong variable <em>creates</em> a
+              spurious association. This is the failure that makes low birth weight look protective
+              against infant mortality — the one on the screenshot above.
+            </li>
+            <li>
+              <strong>Mediators.</strong> Adjusting for a step on the causal path erases the very
+              effect you were trying to measure.
+            </li>
+          </ul>
+          <p>
+            None of these is detectable in the data or in the prose. They are properties of the
+            <em>structure</em> — which means they are detectable once the structure is written down
+            in a form a machine can read.
+          </p>
+
+          <h3>What a causal model gives an agent that retrieval cannot</h3>
+          <p>
+            A knowledge graph stores facts. A causal model stores <em>mechanism</em>: not "these two
+            things co-occur" but "this one moves that one, and here is what you must hold fixed to
+            see it." That is a structure an agent can be checked against rather than merely prompted
+            with.
+          </p>
+          <p>
+            And because it is machine-checkable, an agent can be <em>wrong in a detectable way</em>.
+            That is the property that makes automation safe. An agent that proposes sixty edges from
+            a literature sweep is useful only if you can tell which sixty you actually vouched for —
+            so every relation can carry its own provenance:
+          </p>
+          <pre><code>{ "from": "genotype", "to": "cancer", "kind": "bidirected",
   "assertion": {
     "status": "proposed",              <span class="cmt">// proposed | accepted | disputed | rejected</span>
     "assertedBy": "claude-opus-5",
@@ -155,54 +196,62 @@
     "rationale": "Shared susceptibility locus at 15q25",
     "evidence": ["doi:10.1038/ng.3260"]
   } }</code></pre>
-    <p>
-      An agent's contribution becomes a reviewable diff that flips
-      <code>status</code> on the edges that survived and deletes the rest. Your
-      linter can refuse to publish a figure while anything in it is still
-      <code>proposed</code>. The model stays trustworthy while a machine works on it.
-    </p>
-  </div>
-</section>
+          <p>
+            An agent's contribution becomes a reviewable diff that flips
+            <code>status</code> on the edges that survived and deletes the rest. Your linter can
+            refuse to publish a figure while anything in it is still <code>proposed</code>. The
+            model stays trustworthy while a machine works on it.
+          </p>
+        </div>
+      </section>
 
-<section id="cli">
-  <div class="wrap">
-    <h2>There is a CLI, and it is the point</h2>
-    <p class="sub">The editor is optional. The file and the command line are not.</p>
+      <section id="cli">
+        <div class="wrap">
+          <h2>There is a CLI, and it is the point</h2>
+          <p class="sub">The editor is optional. The file and the command line are not.</p>
 
-    <h3>Text-friendly</h3>
-    <p>Relations are written the way every causal syntax in the world writes
-       them — as arrows. A complete model is six lines, and you can type it.</p>
-<pre><code>{
+          <h3>Text-friendly</h3>
+          <p>
+            Relations are written the way every causal syntax in the world writes them — as arrows.
+            A complete model is six lines, and you can type it.
+          </p>
+          <pre><code>{
   "causal": "0.1",
   "profile": "dag",
   "variables": ["smoking", "tar", "cancer"],
   "relations": ["smoking -> tar", "tar -> cancer"]
 }</code></pre>
-    <p>Longer form is there when an edge earns it — a kind, a confidence, a
-       citation — but you never pay for it up front.</p>
+          <p>
+            Longer form is there when an edge earns it — a kind, a confidence, a citation — but you
+            never pay for it up front.
+          </p>
 
-    <h3>GitHub-friendly</h3>
-    <p>Because the model is text and layout is quarantined into views, a pull
-       request shows what actually changed about the <em>claim</em>:</p>
-<pre><code>  "relations": [
+          <h3>GitHub-friendly</h3>
+          <p>
+            Because the model is text and layout is quarantined into views, a pull request shows
+            what actually changed about the <em>claim</em>:
+          </p>
+          <pre><code>  "relations": [
     "smoking -> tar",
     "tar -> cancer",
 <span class="del">-   "smoking -> cancer"</span>
 <span class="add">+   { "from": "smoking", "to": "cancer", "kind": "bidirected",</span>
 <span class="add">+     "assertion": { "status": "accepted", "rationale": "unmeasured confounding" } }</span>
   ]</code></pre>
-    <p>And CI can gate on it. This is a real check, not an aspiration:</p>
-<pre><code><span class="cmt"># fails the build if any figure contains an unreviewed or uncited edge</span>
+          <p>And CI can gate on it. This is a real check, not an aspiration:</p>
+          <pre><code><span class="cmt"># fails the build if any figure contains an unreviewed or uncited edge</span>
 $ causal lint manuscript/models/*.causal.json
 
 <span class="cmt"># figures are build artifacts, regenerated from source</span>
 $ causal render model.causal.json --all --format svg --out figures/</code></pre>
 
-    <h3>Coding-agent-friendly</h3>
-    <p>Agents edit these files with the tools they already have. What they
-       cannot do is compute graph structure by reasoning — so the CLI does that,
-       and speaks in structured output an agent can act on.</p>
-<pre><code>$ causal lint model.causal.json --json
+          <h3>Coding-agent-friendly</h3>
+          <p>
+            Agents edit these files with the tools they already have. What they cannot do is compute
+            graph structure by reasoning — so the CLI does that, and speaks in structured output an
+            agent can act on.
+          </p>
+          <pre><code>$ causal lint model.causal.json --json
 {
   "results": [{ "diagnostics": [{
     "rule": "collider-adjustment",
@@ -212,61 +261,115 @@ $ causal render model.causal.json --all --format svg --out figures/</code></pre>
     "line": 14, "column": 5
   }] }]
 }</code></pre>
-    <ul class="checks">
-      <li><strong>Self-correcting.</strong> The schema is closed, so a typo like <code>exposre</code> is rejected rather than silently ignored — and the error names the member.</li>
-      <li><strong>Precisely located.</strong> Every diagnostic carries a JSON&nbsp;Pointer, so an agent fixes one field instead of rewriting the file.</li>
-      <li><strong>Context-budgeted.</strong> <code>causal summarize</code> collapses a 3,000-line model back into arrow shorthand that fits in a context window — and re-reads as the same model.</li>
-      <li><strong>Preserving.</strong> Any tool that reads and writes a document must return every extension member untouched. That is a specification requirement, covered by tests.</li>
-    </ul>
-  </div>
-</section>
+          <ul class="checks">
+            <li>
+              <strong>Self-correcting.</strong> The schema is closed, so a typo like
+              <code>exposre</code> is rejected rather than silently ignored — and the error names
+              the member.
+            </li>
+            <li>
+              <strong>Precisely located.</strong> Every diagnostic carries a JSON&nbsp;Pointer, so
+              an agent fixes one field instead of rewriting the file.
+            </li>
+            <li>
+              <strong>Context-budgeted.</strong> <code>causal summarize</code> collapses a
+              3,000-line model back into arrow shorthand that fits in a context window — and
+              re-reads as the same model.
+            </li>
+            <li>
+              <strong>Preserving.</strong> Any tool that reads and writes a document must return
+              every extension member untouched. That is a specification requirement, covered by
+              tests.
+            </li>
+          </ul>
+        </div>
+      </section>
 
-<section id="format">
-  <div class="wrap">
-    <h2>The format</h2>
-    <p class="sub">Boring on purpose, so other tools can read it.</p>
-    <ul class="checks">
-      <li><strong>JSON Schema (2020-12).</strong> Validation and completion in any editor, from a <code>$schema</code> URL or the bundled copy.</li>
-      <li><strong>JSON-LD native.</strong> The normalized document lifts to RDF, with relations as first-class reified entities — so models compose with knowledge graphs and agent memory instead of being a dead end.</li>
-      <li><strong>Four structural profiles.</strong> <code>dag</code>, <code>admg</code> (unmeasured confounding), <code>pag</code> (causal discovery output), and <code>cld</code> (feedback loops). Bayesian-network and structural-equation content attach as additive layers, not separate formats.</li>
-      <li><strong>Extensible without forking.</strong> Anything under an <code>x-</code> prefix is yours, is never validated, and is never lost.</li>
-      <li><strong>Interoperable.</strong> Exports to DAGitty, DOT, GML, Mermaid, and ready-to-paste R and Python snippets — lossy by construction, with the loss documented rather than hidden.</li>
-    </ul>
-  </div>
-</section>
+      <section id="format">
+        <div class="wrap">
+          <h2>The format</h2>
+          <p class="sub">Boring on purpose, so other tools can read it.</p>
+          <ul class="checks">
+            <li>
+              <strong>JSON Schema (2020-12).</strong> Validation and completion in any editor, from
+              a <code>$schema</code> URL or the bundled copy.
+            </li>
+            <li>
+              <strong>JSON-LD native.</strong> The normalized document lifts to RDF, with relations
+              as first-class reified entities — so models compose with knowledge graphs and agent
+              memory instead of being a dead end.
+            </li>
+            <li>
+              <strong>Four structural profiles.</strong> <code>dag</code>,
+              <code>admg</code> (unmeasured confounding), <code>pag</code> (causal discovery
+              output), and <code>cld</code> (feedback loops). Bayesian-network and
+              structural-equation content attach as additive layers, not separate formats.
+            </li>
+            <li>
+              <strong>Extensible without forking.</strong> Anything under an <code>x-</code> prefix
+              is yours, is never validated, and is never lost.
+            </li>
+            <li>
+              <strong>Interoperable.</strong> Exports to DAGitty, DOT, GML, Mermaid, and
+              ready-to-paste R and Python snippets — lossy by construction, with the loss documented
+              rather than hidden.
+            </li>
+          </ul>
+        </div>
+      </section>
 
-<section id="privacy">
-  <div class="wrap">
-    <h2>We track nothing</h2>
-    <p class="sub">Not a policy choice you have to trust. An architectural one you can verify.</p>
+      <section id="privacy">
+        <div class="wrap">
+          <h2>We track nothing</h2>
+          <p class="sub">
+            Not a policy choice you have to trust. An architectural one you can verify.
+          </p>
 
-    <div class="callout">
-      <p><strong>The software makes no network requests.</strong> No telemetry, no
-      analytics, no crash reporting, no licence check, no update ping. The JSON
-      Schema and the JSON-LD context are bundled into the tool, so validation and
-      rendering work fully offline and on air-gapped machines.</p>
-    </div>
+          <div class="callout">
+            <p>
+              <strong>The software makes no network requests.</strong> No telemetry, no analytics,
+              no crash reporting, no licence check, no update ping. The JSON Schema and the JSON-LD
+              context are bundled into the tool, so validation and rendering work fully offline and
+              on air-gapped machines.
+            </p>
+          </div>
 
-    <ul class="checks">
-      <li>Your models never leave your machine. There is no account, no sync, no cloud component — there is no server to send anything to.</li>
-      <li>Figures are rendered locally. No browser, no display, and no network are needed to produce SVG, PDF, or PNG.</li>
-      <li>This website loads no fonts, no scripts, no frameworks and no images from anywhere else. Open the network tab: everything comes from this domain.</li>
-      <li>No cookies. No local storage. No fingerprinting. Nothing to consent to, which is why you were not asked.</li>
-      <li>The source is Apache-2.0. You do not have to believe any of the above — you can read it.</li>
-    </ul>
+          <ul class="checks">
+            <li>
+              Your models never leave your machine. There is no account, no sync, no cloud component
+              — there is no server to send anything to.
+            </li>
+            <li>
+              Figures are rendered locally. No browser, no display, and no network are needed to
+              produce SVG, PDF, or PNG.
+            </li>
+            <li>
+              This website loads no fonts, no scripts, no frameworks and no images from anywhere
+              else. Open the network tab: everything comes from this domain.
+            </li>
+            <li>
+              No cookies. No local storage. No fingerprinting. Nothing to consent to, which is why
+              you were not asked.
+            </li>
+            <li>
+              The source is Apache-2.0. You do not have to believe any of the above — you can read
+              it.
+            </li>
+          </ul>
 
-    <p>The one thing we will not pretend: this site is served by GitHub Pages,
-       and GitHub records server access data such as your IP address in order to
-       deliver it. We have no access to those logs and no analytics on top of
-       them. The details are in the
-       <a href="datenschutz.html">Datenschutzerklärung</a>.</p>
-  </div>
-</section>
+          <p>
+            The one thing we will not pretend: this site is served by GitHub Pages, and GitHub
+            records server access data such as your IP address in order to deliver it. We have no
+            access to those logs and no analytics on top of them. The details are in the
+            <a href="datenschutz.html">Datenschutzerklärung</a>.
+          </p>
+        </div>
+      </section>
 
-<section id="start">
-  <div class="wrap">
-    <h2>Get started</h2>
-<pre><code>$ git clone https://github.com/&lt;your-org&gt;/causal-canvas
+      <section id="start">
+        <div class="wrap">
+          <h2>Get started</h2>
+          <pre><code>$ git clone https://github.com/&lt;your-org&gt;/causal-canvas
 $ cd causal-canvas
 $ pnpm install &amp;&amp; pnpm run build
 
@@ -276,26 +379,26 @@ $ node packages/cli/dist/bin.js lint examples/*.causal.json
 <span class="cmt"># render a figure</span>
 $ node packages/cli/dist/bin.js render examples/smoking-cancer.causal.json \
     --view fig-frontdoor --format svg --out figures/</code></pre>
-    <p>Then open the repository in VS Code and press <strong>F5</strong> to launch
-       the extension, and open anything under <code>examples/</code>.</p>
-  </div>
-</section>
+          <p>
+            Then open the repository in VS Code and press <strong>F5</strong> to launch the
+            extension, and open anything under <code>examples/</code>.
+          </p>
+        </div>
+      </section>
+    </main>
 
-</main>
-
-<footer class="site">
-  <div class="wrap cols">
-    <div>
-      <strong>Causal Canvas</strong> · CausalJSON 0.1<br>
-      Code under Apache-2.0, specification under CC-BY-4.0.
-    </div>
-    <nav>
-      <a href="impressum.html">Impressum</a>
-      <a href="datenschutz.html">Datenschutzerklärung</a>
-      <a href="agb.html">Nutzungsbedingungen</a>
-    </nav>
-  </div>
-</footer>
-
-</body>
+    <footer class="site">
+      <div class="wrap cols">
+        <div>
+          <strong>Causal Canvas</strong> · CausalJSON 0.1<br />
+          Code under Apache-2.0, specification under CC-BY-4.0.
+        </div>
+        <nav>
+          <a href="impressum.html">Impressum</a>
+          <a href="datenschutz.html">Datenschutzerklärung</a>
+          <a href="agb.html">Nutzungsbedingungen</a>
+        </nav>
+      </div>
+    </footer>
+  </body>
 </html>

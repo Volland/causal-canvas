@@ -1,14 +1,8 @@
-<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 32 32">
-  <rect width="32" height="32" rx="7" fill="#1f2933"/>
-  <g stroke="#fff" stroke-width="1.8" fill="none">
-    <path d="M9 10 h6" marker-end="url(#a)"/>
-    <path d="M19 10 v0"/>
-  </g>
-  <defs><marker id="a" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="5" markerHeight="5" orient="auto"><path d="M0,0 L10,5 L0,10 z" fill="#fff"/></marker></defs>
-  <circle cx="8" cy="10" r="3" fill="#fff"/>
-  <circle cx="24" cy="10" r="3" fill="#fff"/>
-  <circle cx="16" cy="23" r="3" fill="#7dd3fc"/>
-  <g stroke="#fff" stroke-width="1.6" fill="none" stroke-linecap="round">
-    <path d="M11 10 h10"/><path d="M9.5 12.6 L14.5 20.4"/><path d="M22.5 12.6 L17.5 20.4"/>
-  </g>
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 128 128" width="128" height="128">
+  <rect width="128" height="128" rx="27" fill="#1b2631"/>
+  <g stroke="#ffffff" stroke-width="6.5" stroke-linecap="round" fill="none"><path d="M57.3,45.9 L46.5,66.8"/><path d="M70.7,45.9 L81.5,66.8"/><path d="M47.5,93.0 L65.5,93.0"/></g>
+  <g fill="#ffffff"><path d="M39.7,80.1 L39.4,63.1 L53.6,70.5 Z"/><path d="M88.3,80.1 L74.4,70.5 L88.6,63.1 Z"/><path d="M80.5,93.0 L65.5,101.0 L65.5,85.0 Z"/></g>
+  <circle cx="33" cy="93" r="12.5" fill="#ffffff"/>
+  <circle cx="95" cy="93" r="12.5" fill="#ffffff"/>
+  <circle cx="64" cy="33" r="12.5" fill="#5cb8ff"/>
 </svg>

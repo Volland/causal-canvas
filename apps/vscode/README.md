@@ -1,7 +1,8 @@
 # Causal Canvas
 
-Visual editing, linting, and figure rendering for [CausalJSON](../../spec/causaljson-0.1.md)
-causal models, inside VS Code.
+Visual editing, linting, and figure rendering for **CausalJSON** causal models,
+inside VS Code. The format specification ships in the project repository as
+`spec/causaljson-0.1.md`.
 
 The document you edit is the `.causal.json` file itself. The canvas is a
 projection of it — never the source — so undo, save, diffs, and version control

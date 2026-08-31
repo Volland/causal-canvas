@@ -138,11 +138,9 @@
     "react": "^18.3.1",
     "react-dom": "^18.3.1"
   },
-  "files": [
-    "dist",
-    "media",
-    "schema",
-    "README.md",
-    "LICENSE"
-  ]
+  "icon": "icon.png",
+  "galleryBanner": {
+    "color": "#1b2631",
+    "theme": "dark"
+  }
 }
