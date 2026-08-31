@@ -361,3 +361,58 @@ footer.site nav {
   gap: 18px;
   flex-wrap: wrap;
 }
+
+/* install cards */
+.install {
+  display: grid;
+  gap: 18px;
+  grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+  margin-top: 28px;
+}
+.install .card {
+  display: flex;
+  flex-direction: column;
+}
+.install .card h3 {
+  margin: 0 0 4px;
+  font-size: 18px;
+}
+.install .card .what {
+  margin: 0 0 14px;
+  font-size: 15px;
+  color: var(--fg-soft);
+}
+.install .card pre {
+  margin: 0 0 12px;
+}
+.install .card .after {
+  margin: 0 0 14px;
+  font-size: 14.5px;
+  color: var(--fg-soft);
+}
+.install .card .links {
+  margin-top: auto;
+  display: flex;
+  gap: 14px;
+  flex-wrap: wrap;
+  font-size: 14.5px;
+}
+.source {
+  margin-top: 30px;
+}
+.source summary {
+  cursor: pointer;
+  font-weight: 550;
+}
+.source pre {
+  margin-top: 14px;
+}
+kbd {
+  font-family: var(--mono);
+  font-size: 0.82em;
+  background: var(--bg-code);
+  border: 1px solid var(--line);
+  border-bottom-width: 2px;
+  border-radius: 4px;
+  padding: 1px 5px;
+}

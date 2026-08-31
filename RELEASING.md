@@ -30,10 +30,10 @@ npx @vpavlyshyn/cli --version
 ## VS Code Marketplace — the extension
 
 Needs an Azure DevOps Personal Access Token with **Marketplace: Manage** scope,
-and the `causaljson` publisher must exist and be yours.
+and the `pavlyshyn` publisher must exist and be yours.
 
 ```bash
-npx @vscode/vsce login causaljson     # paste the PAT once
+npx @vscode/vsce login pavlyshyn     # paste the PAT once
 pnpm --filter causal-canvas run package
 npx @vscode/vsce publish --no-dependencies --packagePath causal-canvas-0.1.0.vsix
 ```

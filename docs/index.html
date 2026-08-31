@@ -17,6 +17,7 @@
       <div class="wrap">
         <a class="brand" href="./"><img src="assets/favicon.svg" alt="" />Causal Canvas</a>
         <nav>
+          <a href="#install">Install</a>
           <a href="#what">What it does</a>
           <a href="#agents">For agents</a>
           <a href="#cli">CLI</a>
@@ -41,7 +42,7 @@
           exposure has no path to your outcome at all.
         </p>
         <div class="cta">
-          <a class="btn primary" href="#start">Get started</a>
+          <a class="btn primary" href="#install">Install</a>
           <a class="btn" href="#cli">See the CLI</a>
           <a class="btn" href="#privacy">Privacy</a>
         </div>
@@ -366,23 +367,72 @@ $ causal render model.causal.json --all --format svg --out figures/</code></pre>
         </div>
       </section>
 
-      <section id="start">
+      <section id="install">
         <div class="wrap">
-          <h2>Get started</h2>
-          <pre><code>$ git clone https://github.com/Volland/causal-canvas
+          <h2>Install</h2>
+          <p class="sub">
+            Two pieces, independent of each other. The CLI is enough on its own; the extension adds
+            the canvas.
+          </p>
+
+          <div class="install">
+            <div class="card">
+              <h3>The extension</h3>
+              <p class="what">
+                Visual editor, causal linting, and figure preview inside VS&nbsp;Code.
+              </p>
+              <pre><code>ext install pavlyshyn.causal-canvas</code></pre>
+              <p class="after">
+                Paste that into VS&nbsp;Code&rsquo;s Quick Open
+                (<kbd>Ctrl</kbd>/<kbd>Cmd</kbd>&nbsp;+&nbsp;<kbd>P</kbd>), or search
+                <strong>Causal Canvas</strong> in the Extensions view.
+              </p>
+              <div class="links">
+                <a
+                  href="https://marketplace.visualstudio.com/items?itemName=pavlyshyn.causal-canvas"
+                  rel="noopener"
+                  >Marketplace page</a
+                >
+              </div>
+            </div>
+
+            <div class="card">
+              <h3>The command line</h3>
+              <p class="what">
+                Validate, lint, format, render, and summarize models &mdash; in a terminal or in CI.
+              </p>
+              <pre><code>npm install -g @vpavlyshyn/cli</code></pre>
+              <p class="after">
+                Then <code>causal lint model.causal.json</code>. Or run it without installing:
+                <code>npx @vpavlyshyn/cli lint model.causal.json</code>.
+              </p>
+              <div class="links">
+                <a href="https://www.npmjs.com/package/@vpavlyshyn/cli" rel="noopener"
+                  >npm package</a
+                >
+              </div>
+            </div>
+          </div>
+
+          <p style="margin-top: 28px">
+            Open any <code>.causal.json</code> file and the canvas takes over. There is nothing to
+            configure, no account, and no sign-in &mdash; see <a href="#privacy">Privacy</a> for why
+            there is nothing to sign in to.
+          </p>
+
+          <details class="source">
+            <summary>Or build from source</summary>
+            <pre><code>$ git clone https://github.com/Volland/causal-canvas
 $ cd causal-canvas
 $ pnpm install &amp;&amp; pnpm run build
 
 <span class="cmt"># lint the bundled examples</span>
-$ node packages/cli/dist/bin.js lint examples/*.causal.json
-
-<span class="cmt"># render a figure</span>
-$ node packages/cli/dist/bin.js render examples/smoking-cancer.causal.json \
-    --view fig-frontdoor --format svg --out figures/</code></pre>
-          <p>
-            Then open the repository in VS Code and press <strong>F5</strong> to launch the
-            extension, and open anything under <code>examples/</code>.
-          </p>
+$ node packages/cli/dist/bin.js lint examples/*.causal.json</code></pre>
+            <p>
+              Then open the repository in VS&nbsp;Code and press <strong>F5</strong> to launch the
+              extension against your working copy.
+            </p>
+          </details>
         </div>
       </section>
     </main>
