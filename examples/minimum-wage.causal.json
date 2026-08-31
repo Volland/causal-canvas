@@ -1,0 +1,32 @@
+{
+  "$schema": "https://causaljson.org/schema/0.1.json",
+  "@context": "https://causaljson.org/ns/v1",
+  "causal": "0.1",
+  "profile": "dag",
+  "id": "minimum-wage",
+  "meta": {
+    "title": "Minimum wage and employment",
+    "description": "An instrumental-variable design. Policy variation shifts labour cost without otherwise touching local employment.",
+    "created": "2026-08-31"
+  },
+  "variables": [
+    { "id": "policy_change", "label": "Statutory minimum wage change", "role": "instrument", "type": "binary" },
+    { "id": "labour_cost", "label": "Labour cost per hour", "role": "exposure", "type": "continuous", "unit": "USD/hour", "equation": "0.8 * policy_change + 0.4 * local_demand + eps_cost", "noise": "eps_cost" },
+    { "id": "local_demand", "label": "Local product demand", "type": "continuous" },
+    { "id": "employment", "label": "Employment level", "role": "outcome", "type": "count", "equation": "-0.3 * labour_cost + 0.6 * local_demand + eps_emp", "noise": "eps_emp" }
+  ],
+  "relations": [
+    { "from": "policy_change", "to": "labour_cost", "coefficient": 0.8 },
+    { "from": "labour_cost", "to": "employment", "coefficient": -0.3 },
+    { "from": "local_demand", "to": "labour_cost", "coefficient": 0.4 },
+    { "from": "local_demand", "to": "employment", "coefficient": 0.6 }
+  ],
+  "views": [
+    {
+      "id": "fig-iv",
+      "title": "Instrumental variable design",
+      "layout": { "mode": "auto", "direction": "LR", "rank": "exposure-to-outcome" },
+      "theme": "book-bw"
+    }
+  ]
+}

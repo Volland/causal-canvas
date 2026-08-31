@@ -1,0 +1,8 @@
+{
+  "rules": {
+    "assertion-reviewed": "error",
+    "orphan-variable": "error",
+    "missing-label": "warn",
+    "relation-has-rationale": "off"
+  }
+}

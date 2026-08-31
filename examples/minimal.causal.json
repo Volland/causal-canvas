@@ -1,0 +1,6 @@
+{
+  "causal": "0.1",
+  "profile": "dag",
+  "variables": ["smoking", "tar", "cancer"],
+  "relations": ["smoking -> tar", "tar -> cancer"]
+}

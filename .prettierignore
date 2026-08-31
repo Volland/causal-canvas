@@ -1,0 +1,15 @@
+dist/
+node_modules/
+pnpm-lock.yaml
+lat.md/
+openspec/
+conformance/
+examples/
+manuscript/figures/
+manuscript/models/
+spec/schema/
+spec/context/
+spec/src/artifacts/
+apps/vscode/media/
+apps/vscode/schema/
+apps/vscode/dist-test/

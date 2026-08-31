@@ -1,0 +1,1 @@
+[{ "rule": "schema-enum", "severity": "error", "layer": "schema", "pointer": "/relations/0/assertion/status" }]

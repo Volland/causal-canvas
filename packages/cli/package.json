@@ -1,0 +1,30 @@
+{
+  "name": "@causal/cli",
+  "version": "0.1.0",
+  "description": "Command line for CausalJSON: validate, lint, fmt, render, summarize",
+  "license": "Apache-2.0",
+  "type": "module",
+  "main": "./dist/index.js",
+  "types": "./dist/index.d.ts",
+  "bin": {
+    "causal": "./dist/bin.js"
+  },
+  "exports": {
+    ".": {
+      "types": "./dist/index.d.ts",
+      "default": "./dist/index.js"
+    }
+  },
+  "files": [
+    "dist"
+  ],
+  "scripts": {
+    "build": "tsc",
+    "typecheck": "tsc --noEmit"
+  },
+  "dependencies": {
+    "@causal/core": "workspace:*",
+    "@causal/render": "workspace:*",
+    "@causal/spec": "workspace:*"
+  }
+}

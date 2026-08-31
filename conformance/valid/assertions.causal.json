@@ -1,0 +1,11 @@
+{
+  "causal": "0.1",
+  "profile": "admg",
+  "variables": ["x", "y"],
+  "relations": [
+    { "from": "x", "to": "y",
+      "assertion": { "status": "proposed", "assertedBy": "an-agent", "confidence": 0.4,
+                     "rationale": "cited in review", "evidence": ["doi:10.0000/example"] } },
+    { "from": "x", "to": "y", "kind": "bidirected" }
+  ]
+}

@@ -1,0 +1,1 @@
+[{ "rule": "relation-shorthand-malformed", "severity": "error", "layer": "schema", "pointer": "/relations/0" }]

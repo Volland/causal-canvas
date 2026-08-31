@@ -1,0 +1,13 @@
+Causal Canvas / CausalJSON
+Copyright 2026 The Causal Canvas authors
+
+This product includes software developed by the Causal Canvas authors,
+licensed under the Apache License, Version 2.0 (see LICENSE).
+
+The CausalJSON specification text in spec/ is licensed separately under
+the Creative Commons Attribution 4.0 International License (see spec/LICENSE).
+
+The causal analysis algorithms implemented in this project are original
+implementations written from published literature. No code from DAGitty
+(GPL-2) or any other copyleft-licensed causal inference library has been
+copied, linked, or derived from.

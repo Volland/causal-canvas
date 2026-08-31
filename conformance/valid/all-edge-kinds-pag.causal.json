@@ -1,0 +1,6 @@
+{
+  "causal": "0.1",
+  "profile": "pag",
+  "variables": ["a", "b", "c", "d", "e", "f"],
+  "relations": ["a -> b", "b <-> c", "c -- d", "d o-> e", "e o-o f"]
+}

@@ -1,0 +1,1 @@
+[{ "rule": "relation-dangling-endpoint", "severity": "error", "layer": "referential", "pointer": "/relations/0" }]

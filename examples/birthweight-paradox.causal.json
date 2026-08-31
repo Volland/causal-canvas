@@ -1,0 +1,52 @@
+{
+  "$schema": "https://causaljson.org/schema/0.1.json",
+  "@context": "https://causaljson.org/ns/v1",
+  "causal": "0.1",
+  "profile": "dag",
+  "id": "birthweight-paradox",
+  "meta": {
+    "title": "The birth weight paradox",
+    "description": "Stratifying on birth weight makes maternal smoking appear protective. Birth weight is a collider, so adjusting for it opens a path through the unmeasured defect.",
+    "created": "2026-08-31"
+  },
+  "variables": [
+    { "id": "maternal-smoking", "label": "Maternal smoking", "role": "exposure", "type": "binary" },
+    { "id": "birth-weight", "label": "Birth weight", "role": "adjusted", "type": "continuous", "unit": "g" },
+    { "id": "birth-defect", "label": "Congenital defect", "latent": true, "type": "binary" },
+    { "id": "infant-mortality", "label": "Infant mortality", "role": "outcome", "type": "binary" }
+  ],
+  "relations": [
+    "maternal-smoking -> birth-weight",
+    "maternal-smoking -> infant-mortality",
+    "birth-defect -> birth-weight",
+    "birth-defect -> infant-mortality",
+    {
+      "from": "birth-weight",
+      "to": "infant-mortality",
+      "assertion": {
+        "status": "disputed",
+        "rationale": "Whether low birth weight is itself causal, or only a marker, is contested.",
+        "evidence": ["doi:10.1093/ije/dyu072"]
+      }
+    }
+  ],
+  "views": [
+    {
+      "id": "fig-collider",
+      "title": "Birth weight as a collider",
+      "layout": {
+        "mode": "auto",
+        "direction": "LR",
+        "pin": { "maternal-smoking": [0, 120], "infant-mortality": [420, 120] }
+      },
+      "highlight": { "variables": ["birth-weight"] },
+      "theme": "book-bw"
+    },
+    {
+      "id": "fig-accepted-only",
+      "title": "Uncontested structure",
+      "filter": { "status": "accepted" },
+      "theme": "book-bw"
+    }
+  ]
+}

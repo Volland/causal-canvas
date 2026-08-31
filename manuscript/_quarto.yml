@@ -1,0 +1,18 @@
+project:
+  type: book
+  # Every figure is regenerated from its model before rendering, so a change to
+  # a causal model propagates to the manuscript with no manual step.
+  pre-render: scripts/figures.mjs
+  output-dir: _site
+
+book:
+  title: 'Causal models'
+  author: 'Volodymyr Pavlyshyn'
+  chapters:
+    - index.qmd
+
+format:
+  html:
+    theme: cosmo
+  pdf:
+    documentclass: scrbook

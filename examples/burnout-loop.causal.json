@@ -1,0 +1,37 @@
+{
+  "$schema": "https://causaljson.org/schema/0.1.json",
+  "@context": "https://causaljson.org/ns/v1",
+  "causal": "0.1",
+  "profile": "cld",
+  "id": "burnout-loop",
+  "meta": {
+    "title": "Engineering burnout",
+    "description": "A reinforcing loop through defect rework, checked by a balancing loop through sick leave. Cyclic, so the profile is cld.",
+    "created": "2026-08-31"
+  },
+  "variables": [
+    { "id": "workload", "label": "Workload", "type": "continuous" },
+    { "id": "stress", "label": "Stress", "type": "continuous" },
+    { "id": "defect_rate", "label": "Defect rate", "type": "continuous" },
+    { "id": "rework", "label": "Rework", "type": "continuous" },
+    { "id": "sick_leave", "label": "Sick leave", "type": "continuous" },
+    { "id": "team_capacity", "label": "Team capacity", "type": "continuous" }
+  ],
+  "relations": [
+    { "from": "workload", "to": "stress", "sign": "+" },
+    { "from": "stress", "to": "defect_rate", "sign": "+" },
+    { "from": "defect_rate", "to": "rework", "sign": "+" },
+    { "from": "rework", "to": "workload", "sign": "+", "label": "reinforcing" },
+    { "from": "stress", "to": "sick_leave", "sign": "+", "delay": "2 weeks" },
+    { "from": "sick_leave", "to": "team_capacity", "sign": "-" },
+    { "from": "team_capacity", "to": "workload", "sign": "-", "label": "balancing" }
+  ],
+  "views": [
+    {
+      "id": "fig-loops",
+      "title": "Reinforcing and balancing loops",
+      "layout": { "mode": "auto", "direction": "TB" },
+      "theme": "book-bw"
+    }
+  ]
+}

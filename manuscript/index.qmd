@@ -1,0 +1,30 @@
+# Confounding you cannot measure {#sec-frontdoor}
+
+The trouble with observational data is rarely the data. It is that the thing
+driving both the treatment and the outcome is often something nobody wrote down.
+
+@fig-frontdoor states the problem precisely. Smoking raises tar deposits, and
+tar deposits raise cancer risk; but something unmeasured — shared genetic
+susceptibility — pushes on both smoking behaviour and cancer risk directly. The
+dashed double-headed arrow is that unmeasured common cause. It is not a
+variable in the model, because it is not a variable in the study.
+
+![The front-door structure. The dashed bidirected edge denotes confounding that
+was never measured.](figures/smoking-cancer-fig-frontdoor.svg){#fig-frontdoor}
+
+What makes this structure worth drawing is that the effect of smoking on cancer
+is still identifiable, despite the confounding, because the mediator is
+measured and is not itself confounded with the outcome.
+
+# When the instrument is the argument
+
+@fig-iv shows the same problem attacked differently. Here nothing about local
+demand is observed well enough to adjust for, so the design leans on a policy
+change that moves labour cost without touching employment any other way.
+
+![An instrumental-variable design.](figures/minimum-wage-fig-iv.svg){#fig-iv}
+
+That last clause is the whole assumption, and it is the one the diagram makes
+checkable: if the instrument had any arrow reaching employment that did not pass
+through labour cost, the design would be invalid. The model is linted for
+exactly that.

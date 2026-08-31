@@ -1,0 +1,9 @@
+{
+  "causal": "0.1",
+  "profile": "dag",
+  "variables": [
+    { "id": "rain", "type": "binary", "states": ["no", "yes"], "cpt": { "no": 0.8, "yes": 0.2 } },
+    { "id": "wet", "type": "binary", "states": ["no", "yes"], "equation": "rain + eps", "noise": "eps" }
+  ],
+  "relations": ["rain -> wet"]
+}

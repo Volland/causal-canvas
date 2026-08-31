@@ -1,0 +1,2 @@
+{ "$schema": "https://causaljson.org/schema/0.9.json", "causal": "0.1",
+  "profile": "dag", "variables": ["a"], "relations": [] }

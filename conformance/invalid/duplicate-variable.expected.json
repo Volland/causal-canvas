@@ -1,0 +1,1 @@
+[{ "rule": "duplicate-variable-id", "severity": "error", "layer": "referential", "pointer": "/variables/1" }]

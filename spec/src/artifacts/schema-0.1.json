@@ -1,0 +1,516 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://causaljson.org/schema/0.1.json",
+  "title": "CausalJSON 0.1",
+  "description": "A JSON-LD-native, schema-validated document format for causal models.",
+  "type": "object",
+  "required": [
+    "causal",
+    "profile",
+    "variables"
+  ],
+  "unevaluatedProperties": false,
+  "properties": {
+    "$schema": {
+      "type": "string"
+    },
+    "@context": {
+      "description": "JSON-LD context. A string URL, an inline object, or an array of both.",
+      "anyOf": [
+        {
+          "type": "string"
+        },
+        {
+          "type": "object"
+        },
+        {
+          "type": "array",
+          "items": {
+            "anyOf": [
+              {
+                "type": "string"
+              },
+              {
+                "type": "object"
+              }
+            ]
+          }
+        }
+      ]
+    },
+    "causal": {
+      "description": "Authoritative format version. See CausalJSON 0.1, Version Coherence.",
+      "type": "string",
+      "pattern": "^[0-9]+\\.[0-9]+$"
+    },
+    "profile": {
+      "description": "Structural class. Selects the validator and the legal relation kinds.",
+      "enum": [
+        "dag",
+        "admg",
+        "pag",
+        "cld"
+      ]
+    },
+    "id": {
+      "$ref": "#/$defs/slug"
+    },
+    "meta": {
+      "$ref": "#/$defs/meta"
+    },
+    "packages": {
+      "description": "Reserved. Declares domain extension packages and their versions.",
+      "type": "object",
+      "additionalProperties": {
+        "type": "string"
+      },
+      "propertyNames": {
+        "pattern": "^[a-z][a-z0-9-]*$"
+      }
+    },
+    "variables": {
+      "type": "array",
+      "items": {
+        "$ref": "#/$defs/variable"
+      }
+    },
+    "relations": {
+      "type": "array",
+      "items": {
+        "$ref": "#/$defs/relation"
+      }
+    },
+    "views": {
+      "type": "array",
+      "items": {
+        "$ref": "#/$defs/view"
+      }
+    }
+  },
+  "patternProperties": {
+    "^x-": true
+  },
+  "$defs": {
+    "slug": {
+      "type": "string",
+      "pattern": "^[A-Za-z_][A-Za-z0-9_.-]*$",
+      "description": "A human-readable identifier. Must start with a letter or underscore."
+    },
+    "relationId": {
+      "type": "string",
+      "pattern": "^[A-Za-z_][A-Za-z0-9_.:-]*$"
+    },
+    "arrow": {
+      "type": "string",
+      "description": "Relation shorthand. Endpoints must be separated from the arrow token by at least one space. Tokens: -> <-> -- o-> o-o",
+      "pattern": "^[A-Za-z_][A-Za-z0-9_.-]* +(<->|o->|o-o|->|--) +[A-Za-z_][A-Za-z0-9_.-]*$"
+    },
+    "meta": {
+      "type": "object",
+      "unevaluatedProperties": false,
+      "properties": {
+        "title": {
+          "type": "string"
+        },
+        "description": {
+          "type": "string"
+        },
+        "authors": {
+          "type": "array",
+          "items": {
+            "type": "string"
+          }
+        },
+        "created": {
+          "type": "string"
+        },
+        "modified": {
+          "type": "string"
+        },
+        "license": {
+          "type": "string"
+        },
+        "source": {
+          "type": "string"
+        },
+        "question": {
+          "type": "string",
+          "description": "The causal question this model is drawn to answer, e.g. \"effect of smoking on cancer\"."
+        }
+      },
+      "patternProperties": {
+        "^x-": true
+      }
+    },
+    "variable": {
+      "anyOf": [
+        {
+          "$ref": "#/$defs/slug"
+        },
+        {
+          "$ref": "#/$defs/variableObject"
+        }
+      ]
+    },
+    "variableObject": {
+      "type": "object",
+      "required": [
+        "id"
+      ],
+      "unevaluatedProperties": false,
+      "properties": {
+        "id": {
+          "$ref": "#/$defs/slug"
+        },
+        "label": {
+          "type": "string"
+        },
+        "description": {
+          "type": "string"
+        },
+        "role": {
+          "description": "Causal role in the question being asked.",
+          "enum": [
+            "exposure",
+            "outcome",
+            "adjusted",
+            "instrument",
+            "selected"
+          ]
+        },
+        "latent": {
+          "type": "boolean"
+        },
+        "type": {
+          "enum": [
+            "binary",
+            "categorical",
+            "ordinal",
+            "continuous",
+            "count",
+            "time"
+          ]
+        },
+        "unit": {
+          "type": "string"
+        },
+        "states": {
+          "description": "Bayesian-network layer. The variable's discrete state space.",
+          "type": "array",
+          "items": {
+            "type": "string"
+          },
+          "minItems": 2
+        },
+        "cpt": {
+          "description": "Bayesian-network layer. Conditional probability table, or a $ref to one. Internal shape is reserved for a later version.",
+          "anyOf": [
+            {
+              "type": "object"
+            },
+            {
+              "type": "object",
+              "required": [
+                "$ref"
+              ],
+              "properties": {
+                "$ref": {
+                  "type": "string"
+                }
+              }
+            }
+          ]
+        },
+        "equation": {
+          "description": "Structural-causal-model layer. Assignment for this variable in terms of its parents.",
+          "type": "string"
+        },
+        "noise": {
+          "description": "Structural-causal-model layer. Exogenous noise term.",
+          "anyOf": [
+            {
+              "type": "string"
+            },
+            {
+              "type": "object"
+            }
+          ]
+        }
+      },
+      "patternProperties": {
+        "^x-": true
+      }
+    },
+    "relation": {
+      "anyOf": [
+        {
+          "$ref": "#/$defs/arrow"
+        },
+        {
+          "$ref": "#/$defs/relationObject"
+        }
+      ]
+    },
+    "relationObject": {
+      "type": "object",
+      "required": [
+        "from",
+        "to"
+      ],
+      "unevaluatedProperties": false,
+      "properties": {
+        "id": {
+          "$ref": "#/$defs/relationId"
+        },
+        "from": {
+          "$ref": "#/$defs/slug"
+        },
+        "to": {
+          "$ref": "#/$defs/slug"
+        },
+        "kind": {
+          "description": "Legality is profile-gated. See CausalJSON 0.1, Edge Kinds.",
+          "enum": [
+            "directed",
+            "bidirected",
+            "undirected",
+            "partially-directed",
+            "nondirected"
+          ],
+          "default": "directed"
+        },
+        "label": {
+          "type": "string"
+        },
+        "sign": {
+          "description": "Causal loop diagram layer. Polarity of the influence.",
+          "enum": [
+            "+",
+            "-",
+            "unknown"
+          ]
+        },
+        "delay": {
+          "description": "Causal loop diagram layer. Lag on the influence.",
+          "anyOf": [
+            {
+              "type": "string"
+            },
+            {
+              "type": "number"
+            }
+          ]
+        },
+        "coefficient": {
+          "description": "Structural-causal-model layer. Path coefficient.",
+          "type": "number"
+        },
+        "assertion": {
+          "$ref": "#/$defs/assertion"
+        }
+      },
+      "patternProperties": {
+        "^x-": true
+      }
+    },
+    "assertion": {
+      "description": "Who claims this relation, with what standing and on what evidence. Absent means author-asserted and accepted.",
+      "type": "object",
+      "unevaluatedProperties": false,
+      "properties": {
+        "status": {
+          "enum": [
+            "proposed",
+            "accepted",
+            "disputed",
+            "rejected"
+          ]
+        },
+        "assertedBy": {
+          "type": "string"
+        },
+        "assertedAt": {
+          "type": "string"
+        },
+        "confidence": {
+          "type": "number",
+          "minimum": 0,
+          "maximum": 1
+        },
+        "rationale": {
+          "type": "string"
+        },
+        "evidence": {
+          "type": "array",
+          "items": {
+            "type": "string"
+          }
+        }
+      },
+      "patternProperties": {
+        "^x-": true
+      }
+    },
+    "view": {
+      "type": "object",
+      "required": [
+        "id"
+      ],
+      "unevaluatedProperties": false,
+      "properties": {
+        "id": {
+          "$ref": "#/$defs/slug"
+        },
+        "title": {
+          "type": "string"
+        },
+        "include": {
+          "description": "Element subset. \"*\" or the whole model when omitted.",
+          "anyOf": [
+            {
+              "const": "*"
+            },
+            {
+              "type": "array",
+              "items": {
+                "$ref": "#/$defs/slug"
+              }
+            }
+          ]
+        },
+        "exclude": {
+          "type": "array",
+          "items": {
+            "$ref": "#/$defs/slug"
+          }
+        },
+        "filter": {
+          "type": "object",
+          "unevaluatedProperties": false,
+          "properties": {
+            "status": {
+              "anyOf": [
+                {
+                  "enum": [
+                    "proposed",
+                    "accepted",
+                    "disputed",
+                    "rejected"
+                  ]
+                },
+                {
+                  "type": "array",
+                  "items": {
+                    "enum": [
+                      "proposed",
+                      "accepted",
+                      "disputed",
+                      "rejected"
+                    ]
+                  }
+                }
+              ]
+            }
+          },
+          "patternProperties": {
+            "^x-": true
+          }
+        },
+        "layout": {
+          "$ref": "#/$defs/layout"
+        },
+        "highlight": {
+          "type": "object",
+          "unevaluatedProperties": false,
+          "properties": {
+            "variables": {
+              "type": "array",
+              "items": {
+                "$ref": "#/$defs/slug"
+              }
+            },
+            "relations": {
+              "type": "array",
+              "items": {
+                "$ref": "#/$defs/relationId"
+              }
+            }
+          },
+          "patternProperties": {
+            "^x-": true
+          }
+        },
+        "theme": {
+          "type": "string"
+        }
+      },
+      "patternProperties": {
+        "^x-": true
+      }
+    },
+    "layout": {
+      "type": "object",
+      "unevaluatedProperties": false,
+      "properties": {
+        "mode": {
+          "enum": [
+            "auto",
+            "manual"
+          ],
+          "default": "auto"
+        },
+        "direction": {
+          "enum": [
+            "LR",
+            "RL",
+            "TB",
+            "BT"
+          ],
+          "default": "LR"
+        },
+        "rank": {
+          "enum": [
+            "none",
+            "exposure-to-outcome"
+          ],
+          "default": "none"
+        },
+        "pin": {
+          "description": "Explicit coordinates. Pinned elements never move when unpinned ones are added.",
+          "type": "object",
+          "additionalProperties": {
+            "type": "array",
+            "items": {
+              "type": "number"
+            },
+            "minItems": 2,
+            "maxItems": 2
+          },
+          "propertyNames": {
+            "$ref": "#/$defs/slug"
+          }
+        },
+        "spacing": {
+          "type": "object",
+          "unevaluatedProperties": false,
+          "properties": {
+            "node": {
+              "type": "number",
+              "exclusiveMinimum": 0
+            },
+            "layer": {
+              "type": "number",
+              "exclusiveMinimum": 0
+            }
+          },
+          "patternProperties": {
+            "^x-": true
+          }
+        }
+      },
+      "patternProperties": {
+        "^x-": true
+      }
+    }
+  }
+}

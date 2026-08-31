@@ -1,0 +1,14 @@
+node_modules/
+dist/
+*.tsbuildinfo
+.DS_Store
+out/
+figures/
+manuscript/_site/
+manuscript/*_files/
+lat.md/.cache/
+manuscript/figures/
+apps/vscode/media/
+apps/vscode/schema/
+apps/vscode/dist-test/
+*.vsix

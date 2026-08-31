@@ -1,0 +1,1 @@
+[{ "rule": "duplicate-relation-id", "severity": "error", "layer": "referential", "pointer": "/relations/1" }]

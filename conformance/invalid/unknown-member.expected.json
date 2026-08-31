@@ -1,0 +1,1 @@
+[{ "rule": "schema-unevaluatedProperties", "severity": "error", "layer": "schema", "pointer": "/variables/0" }]

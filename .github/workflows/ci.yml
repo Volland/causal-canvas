@@ -1,0 +1,50 @@
+name: ci
+
+on:
+  push:
+    branches: [main]
+  pull_request:
+
+jobs:
+  build-and-test:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: pnpm/action-setup@v4
+        with:
+          version: 10
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 22
+          cache: pnpm
+      - run: pnpm install --frozen-lockfile
+      - run: pnpm run build
+      - run: pnpm run lint
+      - run: pnpm run format:check
+      - name: Typecheck the extension, host and webview
+        run: pnpm --filter causal-canvas run typecheck
+
+      - name: Unit and conformance tests
+        run: pnpm run test
+      # birthweight-paradox is deliberately broken: it adjusts for a collider,
+      # which is the error it exists to teach. That it reports is asserted in
+      # the conformance suite, so it is excluded here rather than tolerated.
+      - name: Lint the example models with the built CLI
+        run: |
+          node packages/cli/dist/bin.js lint \
+            examples/minimal.causal.json \
+            examples/smoking-cancer.causal.json \
+            examples/minimum-wage.causal.json \
+            examples/burnout-loop.causal.json
+
+      # The manuscript gate. Figure generation lints every manuscript model
+      # first, so an unreviewed or structurally broken model fails the build
+      # before any figure is produced.
+      - name: Manuscript figure build
+        run: node manuscript/scripts/figures.mjs
+
+      - name: Figures are reproducible
+        run: |
+          node packages/cli/dist/bin.js render manuscript/models/smoking-cancer.causal.json --format svg --out /tmp/a.svg
+          node packages/cli/dist/bin.js render manuscript/models/smoking-cancer.causal.json --format svg --out /tmp/b.svg
+          cmp /tmp/a.svg /tmp/b.svg

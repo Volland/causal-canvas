@@ -1,0 +1,15 @@
+{
+  "causal": "0.1",
+  "profile": "admg",
+  "x-tool": { "collapsed": true, "nested": { "deep": [1, 2, 3] } },
+  "meta": { "title": "Round-trip fixture", "x-internal": "keep me" },
+  "variables": [
+    "plain",
+    { "id": "annotated", "label": "Annotated", "x-mytool:colour": "#ff0000" }
+  ],
+  "relations": [
+    "plain -> annotated",
+    { "from": "annotated", "to": "plain", "kind": "bidirected", "x-note": "private" }
+  ],
+  "views": [{ "id": "fig", "theme": "book-bw", "x-editor": { "zoom": 1.5 } }]
+}

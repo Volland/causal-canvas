@@ -1,0 +1,26 @@
+{
+  "name": "@causal/spec",
+  "version": "0.1.0",
+  "description": "CausalJSON specification, JSON Schema, and JSON-LD context",
+  "license": "Apache-2.0",
+  "type": "module",
+  "main": "./dist/index.js",
+  "types": "./dist/index.d.ts",
+  "exports": {
+    ".": {
+      "types": "./dist/index.d.ts",
+      "default": "./dist/index.js"
+    }
+  },
+  "files": [
+    "dist",
+    "schema",
+    "context",
+    "causaljson-0.1.md",
+    "LICENSE"
+  ],
+  "scripts": {
+    "build": "tsc && node scripts/publish-artifacts.mjs",
+    "typecheck": "tsc --noEmit"
+  }
+}

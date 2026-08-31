@@ -1,0 +1,1 @@
+[{ "rule": "version-mismatch", "severity": "error", "layer": "schema", "pointer": "/$schema" }]

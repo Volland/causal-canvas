@@ -1,0 +1,1 @@
+[{ "rule": "view-unknown-variable", "severity": "error", "layer": "referential", "pointer": "/views/0" }]

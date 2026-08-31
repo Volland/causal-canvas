@@ -1,0 +1,1 @@
+[{ "rule": "relation-kind-illegal-for-profile", "severity": "error", "layer": "structural", "pointer": "/relations/0" }]

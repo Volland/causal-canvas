@@ -1,0 +1,42 @@
+{
+  "$schema": "https://causaljson.org/schema/0.1.json",
+  "@context": "https://causaljson.org/ns/v1",
+  "causal": "0.1",
+  "profile": "admg",
+  "id": "smoking-cancer",
+  "meta": {
+    "title": "Smoking, tar, and lung cancer",
+    "description": "Pearl's front-door example. The effect of smoking on cancer is confounded by an unmeasured factor, but is identifiable through the mediator.",
+    "created": "2026-08-31",
+    "license": "CC-BY-4.0"
+  },
+  "variables": [
+    { "id": "smoking", "label": "Smoking", "role": "exposure", "type": "ordinal", "unit": "cigarettes/day", "states": ["none", "light", "heavy"] },
+    { "id": "tar", "label": "Tar deposits", "type": "continuous", "unit": "mg" },
+    { "id": "cancer", "label": "Lung cancer", "role": "outcome", "type": "binary", "states": ["no", "yes"] }
+  ],
+  "relations": [
+    "smoking -> tar",
+    "tar -> cancer",
+    {
+      "from": "smoking",
+      "to": "cancer",
+      "kind": "bidirected",
+      "label": "unmeasured confounding",
+      "assertion": {
+        "status": "accepted",
+        "confidence": 0.7,
+        "rationale": "Shared genetic susceptibility at 15q25 influences both smoking behaviour and cancer risk, and is not measured in the cohort.",
+        "evidence": ["doi:10.1038/ng.3260"]
+      }
+    }
+  ],
+  "views": [
+    {
+      "id": "fig-frontdoor",
+      "title": "Front-door adjustment",
+      "layout": { "mode": "auto", "direction": "LR", "rank": "exposure-to-outcome" },
+      "theme": "book-bw"
+    }
+  ]
+}

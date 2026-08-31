@@ -1,0 +1,175 @@
+{
+  "@context": {
+    "@version": 1.1,
+    "@base": "https://causaljson.org/model/",
+    "cc": "https://causaljson.org/ns/v1#",
+    "dcterms": "http://purl.org/dc/terms/",
+    "skos": "http://www.w3.org/2004/02/skos/core#",
+    "prov": "http://www.w3.org/ns/prov#",
+    "cito": "http://purl.org/spar/cito/",
+    "xsd": "http://www.w3.org/2001/XMLSchema#",
+    "id": "@id",
+    "causal": {
+      "@id": "cc:formatVersion"
+    },
+    "profile": {
+      "@id": "cc:profile",
+      "@type": "@vocab"
+    },
+    "packages": {
+      "@id": "cc:packages",
+      "@type": "@json"
+    },
+    "meta": {
+      "@id": "cc:meta"
+    },
+    "title": {
+      "@id": "dcterms:title"
+    },
+    "authors": {
+      "@id": "dcterms:creator",
+      "@container": "@set"
+    },
+    "created": {
+      "@id": "dcterms:created",
+      "@type": "xsd:date"
+    },
+    "modified": {
+      "@id": "dcterms:modified",
+      "@type": "xsd:date"
+    },
+    "license": {
+      "@id": "dcterms:license",
+      "@type": "@id"
+    },
+    "source": {
+      "@id": "dcterms:source"
+    },
+    "variables": {
+      "@id": "cc:hasVariable",
+      "@container": "@set"
+    },
+    "relations": {
+      "@id": "cc:hasRelation",
+      "@container": "@set"
+    },
+    "views": {
+      "@id": "cc:views",
+      "@type": "@json"
+    },
+    "label": {
+      "@id": "skos:prefLabel"
+    },
+    "description": {
+      "@id": "dcterms:description"
+    },
+    "role": {
+      "@id": "cc:role",
+      "@type": "@vocab"
+    },
+    "latent": {
+      "@id": "cc:latent",
+      "@type": "xsd:boolean"
+    },
+    "type": {
+      "@id": "cc:variableType",
+      "@type": "@vocab"
+    },
+    "unit": {
+      "@id": "cc:unit"
+    },
+    "states": {
+      "@id": "cc:states",
+      "@container": "@list"
+    },
+    "cpt": {
+      "@id": "cc:cpt",
+      "@type": "@json"
+    },
+    "equation": {
+      "@id": "cc:equation"
+    },
+    "noise": {
+      "@id": "cc:noise"
+    },
+    "from": {
+      "@id": "cc:from",
+      "@type": "@id"
+    },
+    "to": {
+      "@id": "cc:to",
+      "@type": "@id"
+    },
+    "kind": {
+      "@id": "cc:kind",
+      "@type": "@vocab"
+    },
+    "sign": {
+      "@id": "cc:sign"
+    },
+    "delay": {
+      "@id": "cc:delay"
+    },
+    "coefficient": {
+      "@id": "cc:coefficient",
+      "@type": "xsd:double"
+    },
+    "assertion": {
+      "@id": "cc:assertion"
+    },
+    "status": {
+      "@id": "cc:assertionStatus",
+      "@type": "@vocab"
+    },
+    "assertedBy": {
+      "@id": "prov:wasAttributedTo",
+      "@type": "@id"
+    },
+    "assertedAt": {
+      "@id": "prov:generatedAtTime",
+      "@type": "xsd:date"
+    },
+    "confidence": {
+      "@id": "cc:confidence",
+      "@type": "xsd:double"
+    },
+    "rationale": {
+      "@id": "cc:rationale"
+    },
+    "evidence": {
+      "@id": "cito:citesAsEvidence",
+      "@type": "@id",
+      "@container": "@set"
+    },
+    "dag": "cc:dag",
+    "admg": "cc:admg",
+    "pag": "cc:pag",
+    "cld": "cc:cld",
+    "exposure": "cc:exposure",
+    "outcome": "cc:outcome",
+    "adjusted": "cc:adjusted",
+    "instrument": "cc:instrument",
+    "selected": "cc:selected",
+    "directed": "cc:directed",
+    "bidirected": "cc:bidirected",
+    "undirected": "cc:undirected",
+    "partially-directed": "cc:partially-directed",
+    "nondirected": "cc:nondirected",
+    "proposed": "cc:proposed",
+    "accepted": "cc:accepted",
+    "disputed": "cc:disputed",
+    "rejected": "cc:rejected",
+    "binary": "cc:binary",
+    "categorical": "cc:categorical",
+    "ordinal": "cc:ordinal",
+    "continuous": "cc:continuous",
+    "count": "cc:count",
+    "time": "cc:time",
+    "Model": "cc:Model",
+    "Variable": "cc:Variable",
+    "Relation": "cc:Relation",
+    "question": {
+      "@id": "cc:question"
+    }
+  }
+}

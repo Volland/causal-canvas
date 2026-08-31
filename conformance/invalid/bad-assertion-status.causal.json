@@ -1,0 +1,2 @@
+{ "causal": "0.1", "profile": "dag", "variables": ["a", "b"],
+  "relations": [{ "from": "a", "to": "b", "assertion": { "status": "maybe" } }] }

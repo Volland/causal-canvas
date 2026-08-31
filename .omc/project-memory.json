@@ -1,0 +1,148 @@
+{
+  "version": "1.0.0",
+  "lastScanned": 1788183866835,
+  "projectRoot": "/Users/volodymyrpavlyshyn/Documents/work/causal-canvas",
+  "techStack": {
+    "languages": [
+      {
+        "name": "JavaScript/TypeScript",
+        "version": ">=22",
+        "confidence": "high",
+        "markers": ["package.json"]
+      }
+    ],
+    "frameworks": [],
+    "packageManager": "pnpm",
+    "runtime": "Node.js 22"
+  },
+  "build": {
+    "buildCommand": "pnpm build",
+    "testCommand": "pnpm test",
+    "lintCommand": "pnpm lint",
+    "devCommand": null,
+    "scripts": {
+      "build": "pnpm -r --workspace-concurrency=1 run build",
+      "clean": "rm -rf spec/dist packages/*/dist",
+      "typecheck": "tsc -b --noEmit false --dry 2>/dev/null || pnpm -r run typecheck",
+      "lint": "eslint .",
+      "format": "prettier --write .",
+      "format:check": "prettier --check .",
+      "test": "pnpm run build && node --test \"spec/dist/**/*.test.js\" \"packages/*/dist/**/*.test.js\"",
+      "conformance": "node packages/cli/dist/bin.js --version >/dev/null && node --test \"packages/core/dist/conformance.test.js\""
+    }
+  },
+  "conventions": {
+    "namingStyle": null,
+    "importStyle": null,
+    "testPattern": null,
+    "fileOrganization": null
+  },
+  "structure": {
+    "isMonorepo": true,
+    "workspaces": [],
+    "mainDirectories": ["examples", "spec"],
+    "gitBranches": null
+  },
+  "customNotes": [],
+  "directoryMap": {
+    "apps": {
+      "path": "apps",
+      "purpose": null,
+      "fileCount": 0,
+      "lastAccessed": 1788183866825,
+      "keyFiles": []
+    },
+    "conformance": {
+      "path": "conformance",
+      "purpose": null,
+      "fileCount": 1,
+      "lastAccessed": 1788183866825,
+      "keyFiles": ["README.md"]
+    },
+    "examples": {
+      "path": "examples",
+      "purpose": "Example code",
+      "fileCount": 6,
+      "lastAccessed": 1788183866828,
+      "keyFiles": [
+        "AUTHORING-NOTES.md",
+        "birthweight-paradox.causal.json",
+        "burnout-loop.causal.json",
+        "minimal.causal.json",
+        "minimum-wage.causal.json"
+      ]
+    },
+    "lat.md": {
+      "path": "lat.md",
+      "purpose": null,
+      "fileCount": 10,
+      "lastAccessed": 1788183866828,
+      "keyFiles": ["agents.md", "architecture.md", "cli.md", "decisions.md", "format.md"]
+    },
+    "manuscript": {
+      "path": "manuscript",
+      "purpose": null,
+      "fileCount": 3,
+      "lastAccessed": 1788183866829,
+      "keyFiles": ["_quarto.yml", "causal.config.json", "index.qmd"]
+    },
+    "openspec": {
+      "path": "openspec",
+      "purpose": null,
+      "fileCount": 1,
+      "lastAccessed": 1788183866829,
+      "keyFiles": ["config.yaml"]
+    },
+    "packages": {
+      "path": "packages",
+      "purpose": null,
+      "fileCount": 0,
+      "lastAccessed": 1788183866829,
+      "keyFiles": []
+    },
+    "spec": {
+      "path": "spec",
+      "purpose": "Test specifications",
+      "fileCount": 5,
+      "lastAccessed": 1788183866830,
+      "keyFiles": ["CHANGELOG.md", "LICENSE", "causaljson-0.1.md", "package.json", "tsconfig.json"]
+    },
+    "manuscript/models": {
+      "path": "manuscript/models",
+      "purpose": "Data models",
+      "fileCount": 2,
+      "lastAccessed": 1788183866830,
+      "keyFiles": ["minimum-wage.causal.json", "smoking-cancer.causal.json"]
+    },
+    "manuscript/scripts": {
+      "path": "manuscript/scripts",
+      "purpose": "Build/utility scripts",
+      "fileCount": 1,
+      "lastAccessed": 1788183866831,
+      "keyFiles": ["figures.mjs"]
+    },
+    "spec/dist": {
+      "path": "spec/dist",
+      "purpose": "Distribution/build output",
+      "fileCount": 4,
+      "lastAccessed": 1788183866831,
+      "keyFiles": ["index.d.ts", "index.d.ts.map", "index.js"]
+    },
+    "spec/scripts": {
+      "path": "spec/scripts",
+      "purpose": "Build/utility scripts",
+      "fileCount": 1,
+      "lastAccessed": 1788183866831,
+      "keyFiles": ["publish-artifacts.mjs"]
+    },
+    "spec/src": {
+      "path": "spec/src",
+      "purpose": "Source code",
+      "fileCount": 1,
+      "lastAccessed": 1788183866831,
+      "keyFiles": ["index.ts"]
+    }
+  },
+  "hotPaths": [],
+  "userDirectives": []
+}

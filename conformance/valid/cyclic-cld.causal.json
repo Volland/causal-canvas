@@ -1,0 +1,10 @@
+{
+  "causal": "0.1",
+  "profile": "cld",
+  "variables": ["workload", "stress", "errors"],
+  "relations": [
+    { "from": "workload", "to": "stress", "sign": "+" },
+    { "from": "stress", "to": "errors", "sign": "+" },
+    { "from": "errors", "to": "workload", "sign": "+", "delay": "1 sprint" }
+  ]
+}
