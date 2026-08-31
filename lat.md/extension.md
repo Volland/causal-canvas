@@ -25,6 +25,12 @@ A Custom Text Editor whose document is the file text, so undo, dirty state, save
 
 [[apps/vscode/src/editorProvider.ts#CausalEditorProvider]] holds the loop. The host resolves the view, computes geometry, and sends a positioned scene; the webview computes no layout of its own, which is what makes the shared-geometry invariant in [[architecture#Architecture#Shared Geometry Invariant]] hold for the canvas too.
 
+#### Handing The Scene Over
+
+The scene is posted to the webview and never waited on, because waiting for it deadlocks the editor.
+
+VS Code queues a message posted before the webview has loaded and settles the promise only once the webview signals ready — and it does not mount the webview until `resolveCustomTextEditor` has returned. Awaiting the post is therefore circular: the editor sits on its loading bar with no canvas, no error, and nothing in the extension host log. Resolving the editor is a host-side job — build the scene, hand it over, return — and the webview asks again with a `ready` intent once it is running. See [[tests#Packaging guarantees#The editor resolves without the webview]].
+
 ## Commands
 
 Six commands, all thin wrappers over the same core the [[cli#Command Line|command line]] uses, so the editor and the terminal never disagree about what a model means.

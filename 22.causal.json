@@ -1,0 +1,30 @@
+{
+  "$schema": "https://causalcanvas.org/schema/0.1.json",
+  "@context": "https://causalcanvas.org/ns/v1",
+  "causal": "0.1",
+  "profile": "dag",
+  "variables": [
+    {
+      "id": "exposure",
+      "label": "Exposure",
+      "role": "exposure"
+    },
+    {
+      "id": "outcome",
+      "label": "Outcome",
+      "role": "outcome"
+    }
+  ],
+  "relations": [
+    "exposure -> outcome"
+  ],
+  "views": [
+    {
+      "id": "main",
+      "layout": {
+        "mode": "auto",
+        "direction": "LR"
+      }
+    }
+  ]
+}

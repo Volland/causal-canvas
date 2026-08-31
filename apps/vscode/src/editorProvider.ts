@@ -57,6 +57,17 @@ export class CausalEditorProvider implements vscode.CustomTextEditorProvider {
     };
     panel.webview.html = this.html(panel.webview);
 
+    /**
+     * Hand a scene to the webview, without waiting for it to arrive.
+     *
+     * VS Code queues a message posted before the webview has loaded and only
+     * settles the returned promise once the webview signals ready — and it does
+     * not mount the webview until `resolveCustomTextEditor` has returned.
+     * Awaiting the post would therefore deadlock the editor behind its loading
+     * bar: no canvas, no error, nothing in the log.
+     */
+    const post = (scene: Scene): void => void panel.webview.postMessage(scene);
+
     const push = async (): Promise<void> => {
       if (token.isCancellationRequested) return;
       const build = await buildScene(
@@ -68,13 +79,13 @@ export class CausalEditorProvider implements vscode.CustomTextEditorProvider {
 
       if (build.scene) {
         this.lastGood.set(key, build.scene);
-        await panel.webview.postMessage(build.scene);
+        post(build.scene);
         return;
       }
       // Keep showing the last good state rather than clearing the canvas while
       // the author is mid-keystroke in the text editor.
       const stale = this.lastGood.get(key);
-      await panel.webview.postMessage(
+      post(
         stale
           ? ({ ...stale, staleReason: build.problem } satisfies Scene)
           : ({

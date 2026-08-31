@@ -2,7 +2,7 @@
   "name": "causal-canvas",
   "displayName": "Causal Canvas",
   "description": "Visual editor, linting, and figure rendering for CausalJSON causal models",
-  "version": "0.1.2",
+  "version": "0.1.3",
   "license": "Apache-2.0",
   "publisher": "pavlyshyn",
   "private": true,

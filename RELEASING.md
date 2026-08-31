@@ -32,6 +32,10 @@ npx @causal-canvas/causalc --version
 Needs an Azure DevOps Personal Access Token with **Marketplace: Manage** scope,
 and the `pavlyshyn` publisher must exist and be yours.
 
+Add the release to `apps/vscode/CHANGELOG.md` first. The Marketplace reads that
+file out of the published `.vsix` to fill its Changelog tab, so an entry written
+after the fact is invisible until the next release.
+
 ```bash
 npx @vscode/vsce login pavlyshyn     # paste the PAT once
 pnpm --filter causal-canvas run package

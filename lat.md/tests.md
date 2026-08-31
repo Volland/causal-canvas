@@ -58,3 +58,9 @@ Properties of the shipped extension bundle rather than of the code inside it, be
 `dist/extension.cjs` loads under a plain CommonJS require and exports `activate`. See [[extension#Causal Canvas extension#Commands]].
 
 A dependency resolved to a UMD build calls a passed-through `require()` for its own submodules; esbuild cannot follow those, so they survive into the bundle and throw on load. VS Code reports that only as `command 'causalCanvas.newModel' not found`, so no other test catches it.
+
+### The editor resolves without the webview
+
+`resolveCustomTextEditor` finishes against a webview that never acknowledges a message, which is the state VS Code puts every webview in until the method returns. See [[extension#Causal Canvas extension#Editor Architecture#Handing The Scene Over]].
+
+Awaiting `webview.postMessage` there deadlocks the editor on its loading bar and reports nothing — no exception, no log line — so the failure is invisible to every other test and to the extension host itself.
