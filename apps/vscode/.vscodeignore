@@ -1,0 +1,17 @@
+# Source maps are for local debugging, not for the published package. They are
+# roughly three quarters of the payload and help nobody who installs the .vsix.
+**/*.map
+
+# Sources and build machinery; only the bundles ship.
+src/**
+webview/**
+esbuild.mjs
+tsconfig*.json
+dist-test/**
+.vscode/**
+node_modules/**
+
+# Local tooling state, not part of the extension.
+.omc/**
+.cache/**
+**/.DS_Store
