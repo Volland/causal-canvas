@@ -10,21 +10,26 @@ import {
   summarize as summarizeModel,
   validate,
   type Diagnostic,
-} from '@vpavlyshyn/core';
-import { render, UnknownThemeError, UnknownViewError, type OutputFormat } from '@vpavlyshyn/render';
+} from '@causal-canvas/core';
+import {
+  render,
+  UnknownThemeError,
+  UnknownViewError,
+  type OutputFormat,
+} from '@causal-canvas/render';
 import { toJson, toText, summarize, type FileResult } from './report.js';
 
 export const VERSION = '0.1.0';
 
-const USAGE = `causal — CausalJSON toolchain (v${VERSION})
+const USAGE = `causalc — CausalJSON toolchain (v${VERSION})
 
 Usage:
-  causal validate <file...>   [--json] [--warnings-as-errors]
-  causal lint     <file...>   [--json] [--fix] [--warnings-as-errors]
-  causal fmt      <file...>   [--write] [--check]
-  causal render   <file>      [--view <id>] [--all] [--format svg|pdf|png]
+  causalc validate <file...>   [--json] [--warnings-as-errors]
+  causalc lint     <file...>   [--json] [--fix] [--warnings-as-errors]
+  causalc fmt      <file...>   [--write] [--check]
+  causalc render   <file>      [--view <id>] [--all] [--format svg|pdf|png]
                               [--out <path>] [--width <px>] [--scale <n>]
-  causal summarize <file>     [--no-annotations]
+  causalc summarize <file>     [--no-annotations]
 
 Options:
   --json                 structured output on stdout

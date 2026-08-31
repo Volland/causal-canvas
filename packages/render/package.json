@@ -1,5 +1,5 @@
 {
-  "name": "@vpavlyshyn/render",
+  "name": "@causal-canvas/render",
   "version": "0.1.0",
   "description": "Deterministic layout and figure emission for CausalJSON models",
   "license": "Apache-2.0",
@@ -22,8 +22,8 @@
     "typecheck": "tsc --noEmit"
   },
   "dependencies": {
-    "@vpavlyshyn/core": "workspace:*",
-    "@vpavlyshyn/spec": "workspace:*",
+    "@causal-canvas/core": "workspace:*",
+    "@causal-canvas/spec": "workspace:*",
     "elkjs": "^0.9.3",
     "pdf-lib": "^1.17.1"
   },

@@ -1,4 +1,4 @@
-import { ARROW_KINDS, ARROW_PATTERN } from '@vpavlyshyn/spec';
+import { ARROW_KINDS, ARROW_PATTERN } from '@causal-canvas/spec';
 import type {
   CanonicalDocument,
   CanonicalRelation,

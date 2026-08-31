@@ -143,10 +143,10 @@
     }
   },
   "dependencies": {
-    "@vpavlyshyn/core": "workspace:*",
-    "@vpavlyshyn/edits": "workspace:*",
-    "@vpavlyshyn/render": "workspace:*",
-    "@vpavlyshyn/spec": "workspace:*"
+    "@causal-canvas/core": "workspace:*",
+    "@causal-canvas/edits": "workspace:*",
+    "@causal-canvas/render": "workspace:*",
+    "@causal-canvas/spec": "workspace:*"
   },
   "devDependencies": {
     "@types/react": "^18.3.12",

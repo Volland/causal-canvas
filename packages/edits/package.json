@@ -1,5 +1,5 @@
 {
-  "name": "@vpavlyshyn/edits",
+  "name": "@causal-canvas/edits",
   "version": "0.1.0",
   "description": "Surgical text edits over CausalJSON documents",
   "license": "Apache-2.0",
@@ -22,8 +22,8 @@
     "typecheck": "tsc --noEmit"
   },
   "dependencies": {
-    "@vpavlyshyn/core": "workspace:*",
-    "@vpavlyshyn/spec": "workspace:*",
+    "@causal-canvas/core": "workspace:*",
+    "@causal-canvas/spec": "workspace:*",
     "jsonc-parser": "^3.3.1"
   },
   "publishConfig": {

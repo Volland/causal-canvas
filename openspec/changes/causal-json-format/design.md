@@ -108,7 +108,7 @@ Stable IDs follow from reification: without them relations become blank nodes, w
 
 **Alternatives considered.** *Drop arrow shorthand for strict JSON-LD at rest* — reverses D4. *Two artifacts, authoring plus generated canonical* — drift and an ambiguous asset story. *Shorthand for variables only* — a defensible middle path, rejected because relations are where terseness matters most.
 
-**Consequences.** The specification must be precise that expandability is a property of the normalized form. `causal fmt` becomes load-bearing rather than cosmetic.
+**Consequences.** The specification must be precise that expandability is a property of the normalized form. `causalc fmt` becomes load-bearing rather than cosmetic.
 
 ---
 
@@ -146,7 +146,7 @@ Layout cannot be avoided entirely — causal DAGs have strong presentational con
 
 The work is bounded and well-specified: d-separation is textbook Bayes-ball in linear time, and van der Zander, Liśkiewicz, and Textor give constructive algorithms for minimal and minimum-size adjustment sets. Test oracles are available and legally clean — cross-validating outputs against dagitty in R creates no derivative work; only linking its code would.
 
-The strategic consequence is worth stating: `@vpavlyshyn/analysis` as the first permissive TypeScript causal engine is a larger open-source gap than the format itself. It is independently useful to anyone building causal tooling in JavaScript, and those users become the format's adopters. Shipping it standalone is a distribution strategy, not merely code organization.
+The strategic consequence is worth stating: `@causal-canvas/analysis` as the first permissive TypeScript causal engine is a larger open-source gap than the format itself. It is independently useful to anyone building causal tooling in JavaScript, and those users become the format's adopters. Shipping it standalone is a distribution strategy, not merely code organization.
 
 **Alternatives considered.** *Vendor dagitty's JavaScript* — two days instead of two weeks, rejected on license propagation. *Shell out to R or Python* — full capability quickly with a clean boundary, rejected on the CI dependency. *Ship structure-only checks in v1* — lowest risk, rejected because it removes the differentiator and breaks D8's computed highlights.
 
@@ -160,7 +160,7 @@ The strategic consequence is worth stating: `@vpavlyshyn/analysis` as the first 
 
 **Rationale.** The intended workflow has an agent read literature and propose sixty edges, of which twenty-two survive review. Without a standing marker the document becomes untrustworthy the moment an agent touches it — there is no way to tell which edges the human vouched for. Because D6 already reified relations, attaching provenance costs nothing structurally.
 
-Three concrete capabilities follow: `causal lint` gains a review gate, so a half-reviewed model cannot silently ship into a book; views can filter by standing, rendering the publication figure from accepted edges while speculative ones remain in the file; and an agent's contribution becomes a reviewable diff that flips `status` on twenty-two edges and deletes thirty-eight, rather than an opaque rewrite.
+Three concrete capabilities follow: `causalc lint` gains a review gate, so a half-reviewed model cannot silently ship into a book; views can filter by standing, rendering the publication figure from accepted edges while speculative ones remain in the file; and an agent's contribution becomes a reviewable diff that flips `status` on twenty-two edges and deletes thirty-eight, rather than an opaque rewrite.
 
 **Alternatives considered.** *Model-level provenance only* — far less ceremony, rejected because it cannot distinguish agent-proposed from human-vouched edges, which is the entire point. *Provenance via `x-` extensions* — smallest core, rejected because it makes the review workflow permanently second-class. *A full PROV-O activity graph per assertion* — maximum auditability, rejected as disproportionate structure per file; the optional block can grow into it.
 
@@ -174,9 +174,9 @@ Three concrete capabilities follow: `causal lint` gains a review gate, so a half
 
 **Rationale.** Modern coding agents are excellent at editing JSON and poor at remembering bespoke mutation APIs. A `causal_add_relation` tool competes with a capability they already have and prefer. They are, by contrast, structurally incapable of computing d-separation or minimal adjustment sets by reasoning — that is the real gap a tool fills.
 
-`causal fmt` is how the D12 round-trip preservation guarantee is delivered *without* a mutation API: the agent edits freely, normalization restores canonical form, and unknown extension fields and `views` survive by construction.
+`causalc fmt` is how the D12 round-trip preservation guarantee is delivered *without* a mutation API: the agent edits freely, normalization restores canonical form, and unknown extension fields and `views` survive by construction.
 
-`causal summarize` addresses context budget. A two-hundred-node model is thousands of JSON lines and will drown an agent. Emitting the D4 arrow shorthand turns a three-thousand-line document into two hundred lines that fit in context. The format's terse surface doubles as its compression format — a designed-in property rather than a bolt-on.
+`causalc summarize` addresses context budget. A two-hundred-node model is thousands of JSON lines and will drown an agent. Emitting the D4 arrow shorthand turns a three-thousand-line document into two hundred lines that fit in context. The format's terse surface doubles as its compression format — a designed-in property rather than a bolt-on.
 
 **Alternatives considered.** *Query tools plus a structured mutation API* — atomic edits with guaranteed preservation, rejected as surface agents will bypass. *A full mutation API with the document treated as opaque* — strongest integrity, rejected because it contradicts the "JSON is the human-editable asset" premise the whole design rests on. *CLI only, no MCP or Language Model Tools* — simplest, rejected for loss of native discoverability; the adapters are thin once the CLI exists.
 
@@ -212,7 +212,7 @@ The `jsonc-parser` constraint is not an optimization. `JSON.parse` then mutate t
 
 ### D14 — Identity, namespace, and licensing
 
-**Decision.** The format is **CausalJSON**, file extension `.causal.json`. The VS Code product is **Causal Canvas**. Packages are `@vpavlyshyn/core`, `@vpavlyshyn/analysis`, `@vpavlyshyn/render`, `@vpavlyshyn/cli`. The `$schema` and `@context` URLs are hosted on a registered domain. Code is Apache-2.0; specification text is CC-BY-4.0.
+**Decision.** The format is **CausalJSON**, file extension `.causal.json`. The VS Code product is **Causal Canvas**. Packages are `@causal-canvas/core`, `@causal-canvas/analysis`, `@causal-canvas/render`, `@causal-canvas/causalc`. The `$schema` and `@context` URLs are hosted on a registered domain. Code is Apache-2.0; specification text is CC-BY-4.0.
 
 **Rationale.** Two names doing two jobs: the format outlives the editor, and naming the format after its canvas would contradict the premise that the diagram is not the asset. The descriptive-name pattern (GeoJSON, JSON-LD, JSON Schema) makes the file extension the brand.
 
@@ -228,7 +228,7 @@ Apache-2.0 over MIT for near-identical permissiveness plus an explicit patent gr
 
 ### D15 — Layered validation with a configurable severity model
 
-**Decision.** Four layers are always errors — syntax, schema, referential integrity, and structural legality (acyclicity where the profile requires it, edge-kind legality per profile). Three layers are configurable rules with defaults — causal, hygiene, and quantitative. Configuration lives in a repo-level `causal.config.json`. Every diagnostic carries a JSON Pointer. `causal lint --fix` handles the mechanical subset.
+**Decision.** Four layers are always errors — syntax, schema, referential integrity, and structural legality (acyclicity where the profile requires it, edge-kind legality per profile). Three layers are configurable rules with defaults — causal, hygiene, and quantitative. Configuration lives in a repo-level `causal.config.json`. Every diagnostic carries a JSON Pointer. `causalc lint --fix` handles the mechanical subset.
 
 **Rationale.** The first four layers are facts; a document failing them is meaningless. The last three are judgements, and shipping judgements as hard errors is how linters get disabled. Configurability enables a rule that would be obnoxious as a default but is exactly right for a manuscript — failing CI when any figure contains an unreviewed or uncited edge — without inflicting it on someone sketching a DAG in two minutes.
 
@@ -338,11 +338,11 @@ Edge kinds by profile:
    +--------------+---------------+--------------+
    |              |               |              |
  core/         analysis/       render/         cli/                     Apache-2.0
- parse         d-separation    elk layout      causal validate
- normalize     backdoor        svg / pdf       causal lint
- validate      adjustment sets png (resvg)     causal fmt
- lint          implications        |           causal render
-   |                               |           causal summarize
+ parse         d-separation    elk layout      causalc validate
+ normalize     backdoor        svg / pdf       causalc lint
+ validate      adjustment sets png (resvg)     causalc fmt
+ lint          implications        |           causalc render
+   |                               |           causalc summarize
    |                               |               |
    +---------------- one core, thin adapters ------+---> mcp/
                                                    +---> apps/vscode

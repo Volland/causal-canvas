@@ -4,7 +4,7 @@ import { minimalEdit } from './diff.js';
 import { parseIntent } from './protocol.js';
 import { buildScene } from './scene.js';
 import { newModelDocument, PROFILE_CHOICES, withCausalExtension } from './scaffold.js';
-import { CausalGraph, formatDocument, lint, parseDocument, validate } from '@vpavlyshyn/core';
+import { CausalGraph, formatDocument, lint, parseDocument, validate } from '@causal-canvas/core';
 
 const model = JSON.stringify(
   {
@@ -211,7 +211,7 @@ test('the cyclic starter actually contains a loop, and the acyclic one does not'
 
 test('a new model is already in canonical form', () => {
   const text = newModelDocument({ profile: 'dag' });
-  assert.equal(formatDocument(parseDocument(text)), text, 'causal fmt would be a no-op');
+  assert.equal(formatDocument(parseDocument(text)), text, 'causalc fmt would be a no-op');
 });
 
 test('a title is carried into meta when supplied', () => {

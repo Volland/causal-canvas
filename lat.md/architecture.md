@@ -13,11 +13,11 @@ A pnpm monorepo. The specification is a first-class package alongside the code t
        |                |                |                |
    packages/core   packages/       packages/         packages/       Apache-2.0
                    analysis        render            cli
-   parse           d-separation    elk layout        causal validate
-   normalize       backdoor        svg / pdf         causal lint
-   validate        adjustment sets png (resvg)       causal fmt
-   lint            implications                      causal render
-       |                |                |           causal summarize
+   parse           d-separation    elk layout        causalc validate
+   normalize       backdoor        svg / pdf         causalc lint
+   validate        adjustment sets png (resvg)       causalc fmt
+   lint            implications                      causalc render
+       |                |                |           causalc summarize
        |                |                |                |
        +----------------+----------------+----------------+
                                 |
@@ -31,8 +31,8 @@ A pnpm monorepo. The specification is a first-class package alongside the code t
 ```
 
 Implemented today: `spec/` ([[spec/src/index.ts#ARROW_PATTERN|bundled artifacts]]),
-[[packages/core/src/index.ts|@vpavlyshyn/core]], [[packages/render/src/index.ts#render|@vpavlyshyn/render]],
-[[packages/cli/src/index.ts#run|@vpavlyshyn/cli]], [[packages/edits/src/index.ts#pinVariable|@vpavlyshyn/edits]],
+[[packages/core/src/index.ts|@causal-canvas/core]], [[packages/render/src/index.ts#render|@causal-canvas/render]],
+[[packages/cli/src/index.ts#run|@causal-canvas/causalc]], [[packages/edits/src/index.ts#pinVariable|@causal-canvas/edits]],
 and the [[extension#Causal Canvas extension|Causal Canvas extension]]. `packages/analysis` and
 `packages/mcp` are planned, not built.
 
@@ -119,4 +119,4 @@ The build order is chosen to test the riskiest assumption first: that this JSON 
            MCP server, VS Code Language Model Tools
 ```
 
-Phase 1 deliberately ends by publishing the namespace, because nothing external depends on the URLs until then and they become immutable once live. Analysis precedes the canvas because it unblocks both the [[validation#Validation#Causal Rules|causal lint rules]] and the computed highlights that [[rendering#Figure Rendering#View Resolution|views]] depend on.
+Phase 1 deliberately ends by publishing the namespace, because nothing external depends on the URLs until then and they become immutable once live. Analysis precedes the canvas because it unblocks both the [[validation#Validation#Causal Rules|causalc lint rules]] and the computed highlights that [[rendering#Figure Rendering#View Resolution|views]] depend on.

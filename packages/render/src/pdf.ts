@@ -78,8 +78,8 @@ export async function renderPdf(
   const document = await PDFDocument.create();
   document.setCreationDate(EPOCH);
   document.setModificationDate(EPOCH);
-  document.setProducer('@vpavlyshyn/render');
-  document.setCreator('@vpavlyshyn/render');
+  document.setProducer('@causal-canvas/render');
+  document.setCreator('@causal-canvas/render');
   if (options.title) document.setTitle(options.title);
 
   const serif = /times|serif|georgia/i.test(theme.node.fontFamily);

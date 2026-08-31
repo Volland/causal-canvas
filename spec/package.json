@@ -1,5 +1,5 @@
 {
-  "name": "@vpavlyshyn/spec",
+  "name": "@causal-canvas/spec",
   "version": "0.1.0",
   "description": "CausalJSON specification, JSON Schema, and JSON-LD context",
   "license": "Apache-2.0",

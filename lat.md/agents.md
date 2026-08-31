@@ -28,7 +28,7 @@ The same core reaches agents three ways: the [[cli#Command Line|CLI]], an MCP se
 An agent writes a document, receives precisely located diagnostics, and corrects the specific member that was wrong.
 
 ```
-   agent writes  ->  causal lint  ->  { rule, severity, message,
+   agent writes  ->  causalc lint  ->  { rule, severity, message,
                                         pointer: /relations/7/kind }
         ^                                          |
         +---------- surgical correction -----------+
@@ -53,7 +53,7 @@ The workflow the format is built to support: an agent proposes many edges, a per
 
 Three capabilities follow from [[format#CausalJSON#Assertion Provenance|recording standing on each relation]].
 
-- **A review gate.** `causal lint` can fail a build while any relation is still `proposed`, so a half-reviewed model cannot silently reach print.
+- **A review gate.** `causalc lint` can fail a build while any relation is still `proposed`, so a half-reviewed model cannot silently reach print.
 - **Status-filtered figures.** A view renders from accepted edges while speculative ones remain in the document rather than being deleted and lost.
 - **Reviewable contributions.** An agent's change becomes a diff that flips status on twenty-two relations and removes thirty-eight, instead of an opaque rewrite nobody can audit.
 

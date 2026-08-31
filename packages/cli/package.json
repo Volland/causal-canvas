@@ -1,5 +1,5 @@
 {
-  "name": "@vpavlyshyn/cli",
+  "name": "@causal-canvas/causalc",
   "version": "0.1.0",
   "description": "Command line for CausalJSON: validate, lint, fmt, render, summarize",
   "license": "Apache-2.0",
@@ -7,7 +7,7 @@
   "main": "./dist/index.js",
   "types": "./dist/index.d.ts",
   "bin": {
-    "causal": "./dist/bin.js"
+    "causalc": "./dist/bin.js"
   },
   "exports": {
     ".": {
@@ -25,9 +25,9 @@
     "typecheck": "tsc --noEmit"
   },
   "dependencies": {
-    "@vpavlyshyn/core": "workspace:*",
-    "@vpavlyshyn/render": "workspace:*",
-    "@vpavlyshyn/spec": "workspace:*"
+    "@causal-canvas/core": "workspace:*",
+    "@causal-canvas/render": "workspace:*",
+    "@causal-canvas/spec": "workspace:*"
   },
   "publishConfig": {
     "access": "public"

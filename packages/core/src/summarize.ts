@@ -1,4 +1,4 @@
-import { KIND_ARROWS } from '@vpavlyshyn/spec';
+import { KIND_ARROWS } from '@causal-canvas/spec';
 import type { CanonicalDocument } from './types.js';
 
 export interface SummarizeOptions {

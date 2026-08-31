@@ -1,6 +1,6 @@
 import test from 'node:test';
 import assert from 'node:assert/strict';
-import { validate, type CanonicalDocument } from '@vpavlyshyn/core';
+import { validate, type CanonicalDocument } from '@causal-canvas/core';
 import {
   computeLayout,
   render,

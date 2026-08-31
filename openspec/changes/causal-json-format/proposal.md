@@ -12,12 +12,12 @@ This change establishes the format and the smallest end-to-end toolchain that pr
 
 - **New format: CausalJSON** (`.causal.json`) — a JSON-LD-native, JSON Schema-validated document format for causal models. Covers four structural profiles (`dag`, `admg`, `pag`, `cld`) with additive quantitative layers for Bayesian-network and structural-causal-model content.
 - **New published artifacts at a permanent namespace** — a versioned JSON Schema and a versioned JSON-LD `@context`, both immutable once published.
-- **New package `@vpavlyshyn/core`** — parse, shorthand normalization, JSON-LD expansion, schema validation, referential and structural checks, and a configurable lint pipeline emitting JSON Pointer-located diagnostics.
-- **New package `@vpavlyshyn/render`** — deterministic ELK-based layout plus SVG, PDF, and PNG emitters driven by named views declared in the document.
-- **New package `@vpavlyshyn/cli`** — `causal validate`, `causal lint`, `causal fmt`, `causal render`, `causal summarize`, with machine-readable output and CI-appropriate exit codes.
+- **New package `@causal-canvas/core`** — parse, shorthand normalization, JSON-LD expansion, schema validation, referential and structural checks, and a configurable lint pipeline emitting JSON Pointer-located diagnostics.
+- **New package `@causal-canvas/render`** — deterministic ELK-based layout plus SVG, PDF, and PNG emitters driven by named views declared in the document.
+- **New package `@causal-canvas/causalc`** — `causalc validate`, `causalc lint`, `causalc fmt`, `causalc render`, `causalc summarize`, with machine-readable output and CI-appropriate exit codes.
 - **Conformance test suite** — a corpus of valid and invalid documents with expected diagnostics, so the format is defined by tests and not only by prose.
 
-Not in this change, but decided and recorded in `design.md` so this change does not foreclose them: the causal analysis engine (`@vpavlyshyn/analysis`), the VS Code extension (`apps/vscode`), foreign-format exporters, and the MCP / VS Code Language Model Tools adapters.
+Not in this change, but decided and recorded in `design.md` so this change does not foreclose them: the causal analysis engine (`@causal-canvas/analysis`), the VS Code extension (`apps/vscode`), foreign-format exporters, and the MCP / VS Code Language Model Tools adapters.
 
 ## Capabilities
 
@@ -42,4 +42,4 @@ None. This is a greenfield project with no existing specs.
 
 **Licensing.** Code under Apache-2.0 (patent grant matters for a format seeking adoption); specification text under CC-BY-4.0. Notably, the project must not link dagitty's GPL-2 JavaScript, which is why the analysis engine is scheduled as an original TypeScript implementation in a later change.
 
-**Downstream consumers.** Quarto and Pandoc manuscripts consuming generated SVG and PDF figures; a future book build that gates on `causal lint` in CI.
+**Downstream consumers.** Quarto and Pandoc manuscripts consuming generated SVG and PDF figures; a future book build that gates on `causalc lint` in CI.

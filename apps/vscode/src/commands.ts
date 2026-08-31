@@ -1,9 +1,9 @@
 import { existsSync, mkdirSync, writeFileSync } from 'node:fs';
 import { basename, dirname, join } from 'node:path';
 import * as vscode from 'vscode';
-import { formatDocument, loadConfig, parseDocument, validate } from '@vpavlyshyn/core';
-import { render, type OutputFormat } from '@vpavlyshyn/render';
-import type { ProfileName } from '@vpavlyshyn/spec';
+import { formatDocument, loadConfig, parseDocument, validate } from '@causal-canvas/core';
+import { render, type OutputFormat } from '@causal-canvas/render';
+import type { ProfileName } from '@causal-canvas/spec';
 import type { ActiveDocument } from './active.js';
 import { newModelDocument, PROFILE_CHOICES, withCausalExtension } from './scaffold.js';
 import type { FigurePreview } from './preview.js';

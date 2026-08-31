@@ -50,8 +50,8 @@ Ordered per design decision D16: the vertical slice validates the riskiest assum
   > errors", with scenarios). The rules were implemented instead:
   > `collider-adjustment`, `no-causal-path`, `invalid-instrument`, and
   > `latent-underdetermined`, backed by a minimal `CausalGraph` in
-  > `@vpavlyshyn/core` and gated to acyclic profiles. The full analysis engine
-  > (`@vpavlyshyn/analysis`: d-separation API, minimal adjustment sets, testable
+  > `@causal-canvas/core` and gated to acyclic profiles. The full analysis engine
+  > (`@causal-canvas/analysis`: d-separation API, minimal adjustment sets, testable
   > implications) remains a later change as planned. Awaiting a decision on
   > whether to amend this task's text.
 
@@ -66,10 +66,10 @@ Ordered per design decision D16: the vertical slice validates the riskiest assum
 
 ## 7. CLI
 
-- [x] 7.1 Implement `causal validate`, `causal lint`, `causal fmt`, `causal render`, `causal summarize`
+- [x] 7.1 Implement `causalc validate`, `causalc lint`, `causalc fmt`, `causalc render`, `causalc summarize`
 - [x] 7.2 Implement structured output mode, keeping progress text on standard error
 - [x] 7.3 Implement exit-code semantics including the treat-warnings-as-errors flag
-- [x] 7.4 Prove `causal fmt` is idempotent and preserves `x-` members, unrecognized blocks, and views
+- [x] 7.4 Prove `causalc fmt` is idempotent and preserves `x-` members, unrecognized blocks, and views
 
 ## 8. Conformance suite
 
@@ -83,7 +83,7 @@ Ordered per design decision D16: the vertical slice validates the riskiest assum
 
 - [x] 9.1 Render one real figure from a hand-written model into the Quarto manuscript
 - [x] 9.2 Add a manuscript build step that regenerates every figure from its source document
-- [x] 9.3 Add a continuous integration gate running `causal lint` over all manuscript models
+- [x] 9.3 Add a continuous integration gate running `causalc lint` over all manuscript models
 - [x] 9.4 Review the rendered figure against the book's typography and adjust the `book-bw` theme
 
 ## 10. Publication

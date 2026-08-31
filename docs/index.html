@@ -241,10 +241,10 @@
   ]</code></pre>
           <p>And CI can gate on it. This is a real check, not an aspiration:</p>
           <pre><code><span class="cmt"># fails the build if any figure contains an unreviewed or uncited edge</span>
-$ causal lint manuscript/models/*.causal.json
+$ causalc lint manuscript/models/*.causal.json
 
 <span class="cmt"># figures are build artifacts, regenerated from source</span>
-$ causal render model.causal.json --all --format svg --out figures/</code></pre>
+$ causalc render model.causal.json --all --format svg --out figures/</code></pre>
 
           <h3>Coding-agent-friendly</h3>
           <p>
@@ -252,7 +252,7 @@ $ causal render model.causal.json --all --format svg --out figures/</code></pre>
             graph structure by reasoning — so the CLI does that, and speaks in structured output an
             agent can act on.
           </p>
-          <pre><code>$ causal lint model.causal.json --json
+          <pre><code>$ causalc lint model.causal.json --json
 {
   "results": [{ "diagnostics": [{
     "rule": "collider-adjustment",
@@ -273,7 +273,7 @@ $ causal render model.causal.json --all --format svg --out figures/</code></pre>
               an agent fixes one field instead of rewriting the file.
             </li>
             <li>
-              <strong>Context-budgeted.</strong> <code>causal summarize</code> collapses a
+              <strong>Context-budgeted.</strong> <code>causalc summarize</code> collapses a
               3,000-line model back into arrow shorthand that fits in a context window — and
               re-reads as the same model.
             </li>
@@ -401,13 +401,13 @@ $ causal render model.causal.json --all --format svg --out figures/</code></pre>
               <p class="what">
                 Validate, lint, format, render, and summarize models &mdash; in a terminal or in CI.
               </p>
-              <pre><code>npm install -g @vpavlyshyn/cli</code></pre>
+              <pre><code>npm install -g @causal-canvas/causalc</code></pre>
               <p class="after">
-                Then <code>causal lint model.causal.json</code>. Or run it without installing:
-                <code>npx @vpavlyshyn/cli lint model.causal.json</code>.
+                Then <code>causalc lint model.causal.json</code>. Or run it without installing:
+                <code>npx @causal-canvas/causalc lint model.causal.json</code>.
               </p>
               <div class="links">
-                <a href="https://www.npmjs.com/package/@vpavlyshyn/cli" rel="noopener"
+                <a href="https://www.npmjs.com/package/@causal-canvas/causalc" rel="noopener"
                   >npm package</a
                 >
               </div>

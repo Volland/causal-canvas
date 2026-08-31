@@ -1,4 +1,9 @@
-import { lint, resolveConfig, type CanonicalDocument, type ResolvedConfig } from '@vpavlyshyn/core';
+import {
+  lint,
+  resolveConfig,
+  type CanonicalDocument,
+  type ResolvedConfig,
+} from '@causal-canvas/core';
 import {
   computeLayout,
   findView,
@@ -6,7 +11,7 @@ import {
   resolveView,
   UnknownThemeError,
   UnknownViewError,
-} from '@vpavlyshyn/render';
+} from '@causal-canvas/render';
 import type { Scene, SceneEdge, SceneNode } from './protocol.js';
 
 export interface SceneBuild {

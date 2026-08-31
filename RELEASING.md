@@ -18,13 +18,13 @@ cd packages/render && pnpm publish --access public && cd ../..
 cd packages/cli    && pnpm publish --access public && cd ../..
 ```
 
-`@vpavlyshyn/edits` is not part of the CLI's dependency closure — it is only
+`@causal-canvas/edits` is not part of the CLI's dependency closure — it is only
 consumed by the bundled extension. Publish it only if you want it standalone.
 
 Afterwards:
 
 ```bash
-npx @vpavlyshyn/cli --version
+npx @causal-canvas/causalc --version
 ```
 
 ## VS Code Marketplace — the extension

@@ -1,6 +1,6 @@
 import * as vscode from 'vscode';
-import { loadConfig, validate } from '@vpavlyshyn/core';
-import { render } from '@vpavlyshyn/render';
+import { loadConfig, validate } from '@causal-canvas/core';
+import { render } from '@causal-canvas/render';
 
 /**
  * The figure preview.

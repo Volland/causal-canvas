@@ -22,7 +22,7 @@ The extension SHALL register a custom editor for `.causal.json` files whose unde
 
 The extension SHALL publish every diagnostic produced for an open CausalJSON document to the editor's diagnostics, positioned at the element its JSON Pointer identifies, carrying the rule identifier and the configured severity.
 
-#### Scenario: A causal lint is reported
+#### Scenario: A causalc lint is reported
 
 - **WHEN** an open document adjusts for a collider
 - **THEN** a problem appears naming the `collider-adjustment` rule, positioned at the offending variable

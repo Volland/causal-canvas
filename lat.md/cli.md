@@ -8,11 +8,11 @@ Five commands, each a thin adapter over the core library, dispatched by [[packag
 
 | Command | Purpose |
 |---|---|
-| `causal validate` | schema, referential, and structural checks |
-| `causal lint` | the above plus configurable rules |
-| `causal fmt` | canonicalize, preserving content |
-| `causal render` | emit a figure from a named view |
-| `causal summarize` | compact a document for a bounded context window |
+| `causalc validate` | schema, referential, and structural checks |
+| `causalc lint` | the above plus configurable rules |
+| `causalc fmt` | canonicalize, preserving content |
+| `causalc render` | emit a figure from a named view |
+| `causalc summarize` | compact a document for a bounded context window |
 
 ## Output Contract
 
@@ -24,11 +24,11 @@ Structured output goes to standard output with nothing interleaved; progress and
 
 Zero when no error-severity diagnostics were produced, non-zero when any were. Warnings alone do not fail a build unless the caller asks for it.
 
-This is what lets a manuscript build gate on `causal lint` without every hygiene warning blocking publication, while a project that wants stricter standards escalates them through [[validation#Validation#Rule Configuration|rule configuration]] rather than through a flag.
+This is what lets a manuscript build gate on `causalc lint` without every hygiene warning blocking publication, while a project that wants stricter standards escalates them through [[validation#Validation#Rule Configuration|rule configuration]] rather than through a flag.
 
 ## Formatting Guarantees
 
-`causal fmt` is idempotent and preserving. Formatting twice produces no second change.
+`causalc fmt` is idempotent and preserving. Formatting twice produces no second change.
 
 It preserves every `x-` member, every unrecognised reserved block, every view, and the author's choice of shorthand or object form per element. This is how the [[architecture#Architecture#Preservation Invariant]] is delivered without a mutation API — an agent edits freely, formatting restores canonical form, and unknown content survives by construction.
 

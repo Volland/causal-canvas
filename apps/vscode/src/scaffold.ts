@@ -1,4 +1,4 @@
-import { CONTEXT_URL, FORMAT_VERSION, SCHEMA_URL, type ProfileName } from '@vpavlyshyn/spec';
+import { CONTEXT_URL, FORMAT_VERSION, SCHEMA_URL, type ProfileName } from '@causal-canvas/spec';
 
 export interface ScaffoldOptions {
   profile: ProfileName;
@@ -13,7 +13,7 @@ export interface ScaffoldOptions {
  * and an outcome for the acyclic profiles, a reinforcing pair for `cld`. Both
  * validate clean and are trivial to delete.
  *
- * Output is already in canonical form, so `causal fmt` on a fresh document is
+ * Output is already in canonical form, so `causalc fmt` on a fresh document is
  * a no-op.
  */
 // @lat: [[extension#Causal Canvas extension#Commands#Creating A Model]]

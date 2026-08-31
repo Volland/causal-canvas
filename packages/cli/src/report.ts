@@ -1,4 +1,4 @@
-import type { Diagnostic } from '@vpavlyshyn/core';
+import type { Diagnostic } from '@causal-canvas/core';
 
 export interface FileResult {
   file: string;

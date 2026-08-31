@@ -3,7 +3,7 @@ import { dirname, join } from 'node:path';
 import { fileURLToPath } from 'node:url';
 import test from 'node:test';
 import assert from 'node:assert/strict';
-import { validate } from '@vpavlyshyn/core';
+import { validate } from '@causal-canvas/core';
 import {
   addRelation,
   addVariable,

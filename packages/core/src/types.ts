@@ -1,4 +1,4 @@
-import type { AssertionStatus, ProfileName, RelationKind } from '@vpavlyshyn/spec';
+import type { AssertionStatus, ProfileName, RelationKind } from '@causal-canvas/spec';
 
 export type { AssertionStatus, ProfileName, RelationKind };
 
@@ -34,7 +34,7 @@ export interface Diagnostic {
   /** JSON Pointer into the source document. */
   pointer: string;
   position?: Position;
-  /** True when `causal lint --fix` can repair this mechanically. */
+  /** True when `causalc lint --fix` can repair this mechanically. */
   fixable?: boolean;
 }
 
