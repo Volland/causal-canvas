@@ -1,5 +1,5 @@
 {
-  "name": "@causal/spec",
+  "name": "@vpavlyshyn/spec",
   "version": "0.1.0",
   "description": "CausalJSON specification, JSON Schema, and JSON-LD context",
   "license": "Apache-2.0",
@@ -14,13 +14,23 @@
   },
   "files": [
     "dist",
-    "schema",
-    "context",
-    "causaljson-0.1.md",
-    "LICENSE"
+    "!dist/**/*.test.*",
+    "!dist/**/testutil.*"
   ],
   "scripts": {
     "build": "tsc && node scripts/publish-artifacts.mjs",
     "typecheck": "tsc --noEmit"
+  },
+  "publishConfig": {
+    "access": "public"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/Volland/causal-canvas.git",
+    "directory": "spec"
+  },
+  "homepage": "https://volland.github.io/causal-canvas/",
+  "bugs": {
+    "url": "https://github.com/Volland/causal-canvas/issues"
   }
 }

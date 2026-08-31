@@ -1,5 +1,5 @@
 import jsonldModule from 'jsonld';
-import { context as bundledContext } from '@causal/spec';
+import { context as bundledContext } from '@vpavlyshyn/spec';
 import type { CanonicalDocument } from './types.js';
 
 const jsonld: any = (jsonldModule as any).default ?? jsonldModule;

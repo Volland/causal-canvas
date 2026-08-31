@@ -1,4 +1,4 @@
-import type { Diagnostic } from '@causal/core';
+import type { Diagnostic } from '@vpavlyshyn/core';
 
 export interface FileResult {
   file: string;

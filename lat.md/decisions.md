@@ -110,7 +110,7 @@ A VS Code Custom Text Editor over the JSON document, with React Flow for interac
 
 ## D14 Identity And Licensing
 
-Format is CausalJSON with extension `.causal.json`; product is Causal Canvas; packages are `@causal/*`. Schema and context are hosted on a registered domain. Code is Apache-2.0, specification CC-BY-4.0.
+Format is CausalJSON with extension `.causal.json`; product is Causal Canvas; packages are `@vpavlyshyn/*`. Schema and context are hosted on a registered domain. Code is Apache-2.0, specification CC-BY-4.0.
 
 **Why:** the format outlives the editor, so they take separate names. Apache-2.0 over MIT for the explicit patent grant, which is what makes legal departments comfortable adopting a format.
 
@@ -146,7 +146,7 @@ Decisions specific to the VS Code surface, taken once the editor was actually wr
 
 ### E1 Edits Live In Their Own Package
 
-Canvas actions become `jsonc-parser` edits applied as workspace edits, and that translation lives in `@causal/edits`, not in the extension.
+Canvas actions become `jsonc-parser` edits applied as workspace edits, and that translation lives in `@vpavlyshyn/edits`, not in the extension.
 
 **Why:** it is the most breakable guarantee in the product, and inside the extension it would be testable only by hand in a running editor. See [[extension#Causal Canvas extension#Surgical Edits]].
 

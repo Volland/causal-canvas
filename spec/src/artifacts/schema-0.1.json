@@ -1,6 +1,6 @@
 {
   "$schema": "https://json-schema.org/draft/2020-12/schema",
-  "$id": "https://causaljson.org/schema/0.1.json",
+  "$id": "https://causalcanvas.org/schema/0.1.json",
   "title": "CausalJSON 0.1",
   "description": "A JSON-LD-native, schema-validated document format for causal models.",
   "type": "object",

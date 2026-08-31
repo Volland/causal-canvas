@@ -18,7 +18,7 @@ export { renderPdf, type PdfOptions } from './pdf.js';
 export { renderPng, RasterizerUnavailableError, type PngOptions } from './png.js';
 export { borderPoint } from './geometry.js';
 
-import type { CanonicalDocument } from '@causal/core';
+import type { CanonicalDocument } from '@vpavlyshyn/core';
 import { computeLayout, type Layout } from './layout.js';
 import { findView, resolveView } from './resolve.js';
 import { renderSvg } from './svg.js';

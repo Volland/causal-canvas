@@ -1,6 +1,6 @@
 import { applyEdits, modify, type JSONPath } from 'jsonc-parser';
-import { KIND_ARROWS, type RelationKind } from '@causal/spec';
-import { normalize, parseDocument, type CanonicalDocument } from '@causal/core';
+import { KIND_ARROWS, type RelationKind } from '@vpavlyshyn/spec';
+import { normalize, parseDocument, type CanonicalDocument } from '@vpavlyshyn/core';
 
 /**
  * Surgical edits over CausalJSON document text.

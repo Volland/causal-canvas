@@ -50,8 +50,8 @@ Ordered per design decision D16: the vertical slice validates the riskiest assum
   > errors", with scenarios). The rules were implemented instead:
   > `collider-adjustment`, `no-causal-path`, `invalid-instrument`, and
   > `latent-underdetermined`, backed by a minimal `CausalGraph` in
-  > `@causal/core` and gated to acyclic profiles. The full analysis engine
-  > (`@causal/analysis`: d-separation API, minimal adjustment sets, testable
+  > `@vpavlyshyn/core` and gated to acyclic profiles. The full analysis engine
+  > (`@vpavlyshyn/analysis`: d-separation API, minimal adjustment sets, testable
   > implications) remains a later change as planned. Awaiting a decision on
   > whether to amend this task's text.
 
@@ -88,7 +88,11 @@ Ordered per design decision D16: the vertical slice validates the riskiest assum
 
 ## 10. Publication
 
-- [ ] 10.1 Choose and register the domain, with a ten-year registration horizon
+- [x] 10.1 Choose and register the domain, with a ten-year registration horizon
+
+  > `causalcanvas.org`, registered by the owner. Schema and context are generated
+  > into `docs/` by the spec build and served via GitHub Pages with a `CNAME`.
+  > DNS is not yet pointed at GitHub Pages.
 - [ ] 10.2 Publish the versioned schema and context as static files at immutable URLs
 - [x] 10.3 Verify documents validate and render offline using the bundled copies, with the remote as fallback only
 - [x] 10.4 Write the specification changelog and state the 0.x instability policy alongside the post-1.0 immutability guarantee

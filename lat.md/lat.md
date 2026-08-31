@@ -25,6 +25,6 @@ Two names doing two jobs, because the format is expected to outlive the editor.
 
 - **CausalJSON** — the document format. File extension `.causal.json`.
 - **Causal Canvas** — the VS Code extension.
-- **`@causal/*`** — the npm packages that implement both.
+- **`@vpavlyshyn/*`** — the npm packages that implement both.
 
 Naming the format after its canvas would contradict the premise that the diagram is not the asset. See [[decisions#Design Decisions#D14 Identity And Licensing]].

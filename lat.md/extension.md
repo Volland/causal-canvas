@@ -57,6 +57,6 @@ A pane showing the genuine emitter output for the active view, not a second appr
 
 Two bundles: a CommonJS host bundle and a self-contained browser bundle for the webview.
 
-A VS Code webview has no module resolution and no network, so everything it needs is inlined. Bundling also means the extension ships with no runtime `node_modules`, which is what makes it packageable. This is why `apps/vscode` builds with esbuild rather than plain `tsc` like every other package — and why JSON-LD lifting lives at `@causal/core/ld` rather than on the main entry, keeping a network-capable dependency out of the editor.
+A VS Code webview has no module resolution and no network, so everything it needs is inlined. Bundling also means the extension ships with no runtime `node_modules`, which is what makes it packageable. This is why `apps/vscode` builds with esbuild rather than plain `tsc` like every other package — and why JSON-LD lifting lives at `@vpavlyshyn/core/ld` rather than on the main entry, keeping a network-capable dependency out of the editor.
 
 Packaging is governed by `.vscodeignore` rather than a `files` list, because the packager rejects both strategies at once and only the ignore file can exclude the source maps that live inside `dist/`. Dropping them takes the `.vsix` from 2.7 MB to about 810 KB, and they help nobody who installs the extension.

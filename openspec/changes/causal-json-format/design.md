@@ -146,7 +146,7 @@ Layout cannot be avoided entirely — causal DAGs have strong presentational con
 
 The work is bounded and well-specified: d-separation is textbook Bayes-ball in linear time, and van der Zander, Liśkiewicz, and Textor give constructive algorithms for minimal and minimum-size adjustment sets. Test oracles are available and legally clean — cross-validating outputs against dagitty in R creates no derivative work; only linking its code would.
 
-The strategic consequence is worth stating: `@causal/analysis` as the first permissive TypeScript causal engine is a larger open-source gap than the format itself. It is independently useful to anyone building causal tooling in JavaScript, and those users become the format's adopters. Shipping it standalone is a distribution strategy, not merely code organization.
+The strategic consequence is worth stating: `@vpavlyshyn/analysis` as the first permissive TypeScript causal engine is a larger open-source gap than the format itself. It is independently useful to anyone building causal tooling in JavaScript, and those users become the format's adopters. Shipping it standalone is a distribution strategy, not merely code organization.
 
 **Alternatives considered.** *Vendor dagitty's JavaScript* — two days instead of two weeks, rejected on license propagation. *Shell out to R or Python* — full capability quickly with a clean boundary, rejected on the CI dependency. *Ship structure-only checks in v1* — lowest risk, rejected because it removes the differentiator and breaks D8's computed highlights.
 
@@ -212,7 +212,7 @@ The `jsonc-parser` constraint is not an optimization. `JSON.parse` then mutate t
 
 ### D14 — Identity, namespace, and licensing
 
-**Decision.** The format is **CausalJSON**, file extension `.causal.json`. The VS Code product is **Causal Canvas**. Packages are `@causal/core`, `@causal/analysis`, `@causal/render`, `@causal/cli`. The `$schema` and `@context` URLs are hosted on a registered domain. Code is Apache-2.0; specification text is CC-BY-4.0.
+**Decision.** The format is **CausalJSON**, file extension `.causal.json`. The VS Code product is **Causal Canvas**. Packages are `@vpavlyshyn/core`, `@vpavlyshyn/analysis`, `@vpavlyshyn/render`, `@vpavlyshyn/cli`. The `$schema` and `@context` URLs are hosted on a registered domain. Code is Apache-2.0; specification text is CC-BY-4.0.
 
 **Rationale.** Two names doing two jobs: the format outlives the editor, and naming the format after its canvas would contradict the premise that the diagram is not the asset. The descriptive-name pattern (GeoJSON, JSON-LD, JSON Schema) makes the file extension the brand.
 

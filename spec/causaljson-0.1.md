@@ -15,8 +15,8 @@ A CausalJSON document is a JSON object. It MUST declare `causal` and `profile`, 
 
 ```json
 {
-  "$schema": "https://causaljson.org/schema/0.1.json",
-  "@context": "https://causaljson.org/ns/v1",
+  "$schema": "https://causalcanvas.org/schema/0.1.json",
+  "@context": "https://causalcanvas.org/ns/v1",
   "causal": "0.1",
   "profile": "admg",
   "id": "smoking-cancer",

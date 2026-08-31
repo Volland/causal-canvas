@@ -1,5 +1,5 @@
 {
-  "name": "@causal/cli",
+  "name": "@vpavlyshyn/cli",
   "version": "0.1.0",
   "description": "Command line for CausalJSON: validate, lint, fmt, render, summarize",
   "license": "Apache-2.0",
@@ -16,15 +16,29 @@
     }
   },
   "files": [
-    "dist"
+    "dist",
+    "!dist/**/*.test.*",
+    "!dist/**/testutil.*"
   ],
   "scripts": {
     "build": "tsc",
     "typecheck": "tsc --noEmit"
   },
   "dependencies": {
-    "@causal/core": "workspace:*",
-    "@causal/render": "workspace:*",
-    "@causal/spec": "workspace:*"
+    "@vpavlyshyn/core": "workspace:*",
+    "@vpavlyshyn/render": "workspace:*",
+    "@vpavlyshyn/spec": "workspace:*"
+  },
+  "publishConfig": {
+    "access": "public"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/Volland/causal-canvas.git",
+    "directory": "packages/cli"
+  },
+  "homepage": "https://volland.github.io/causal-canvas/",
+  "bugs": {
+    "url": "https://github.com/Volland/causal-canvas/issues"
   }
 }

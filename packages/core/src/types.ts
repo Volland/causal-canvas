@@ -1,4 +1,4 @@
-import type { AssertionStatus, ProfileName, RelationKind } from '@causal/spec';
+import type { AssertionStatus, ProfileName, RelationKind } from '@vpavlyshyn/spec';
 
 export type { AssertionStatus, ProfileName, RelationKind };
 

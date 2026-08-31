@@ -1,5 +1,5 @@
 import * as vscode from 'vscode';
-import { loadConfig } from '@causal/core';
+import { loadConfig } from '@vpavlyshyn/core';
 import {
   addRelation,
   addVariable,
@@ -9,8 +9,8 @@ import {
   pinVariable,
   setVariableLabel,
   type EditResult,
-} from '@causal/edits';
-import type { RelationKind } from '@causal/spec';
+} from '@vpavlyshyn/edits';
+import type { RelationKind } from '@vpavlyshyn/spec';
 import { parseIntent, type Intent, type Scene } from './protocol.js';
 import { buildScene } from './scene.js';
 import { applyText } from './textEdit.js';

@@ -30,7 +30,7 @@ export { formatDocument } from './format.js';
 export { summarize, type SummarizeOptions } from './summarize.js';
 // JSON-LD lifting is deliberately NOT re-exported here. It pulls a network-capable
 // document loader, which has no place in a consumer that only parses and validates.
-// Import it from `@causal/core/ld` when you actually want RDF.
+// Import it from `@vpavlyshyn/core/ld` when you actually want RDF.
 export {
   pointerToSegments,
   toPointer,

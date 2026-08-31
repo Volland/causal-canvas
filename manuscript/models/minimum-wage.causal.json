@@ -1,6 +1,6 @@
 {
-  "$schema": "https://causaljson.org/schema/0.1.json",
-  "@context": "https://causaljson.org/ns/v1",
+  "$schema": "https://causalcanvas.org/schema/0.1.json",
+  "@context": "https://causalcanvas.org/ns/v1",
   "causal": "0.1",
   "profile": "dag",
   "id": "minimum-wage",

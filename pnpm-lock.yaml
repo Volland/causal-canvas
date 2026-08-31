@@ -26,16 +26,16 @@ importers:
 
   apps/vscode:
     dependencies:
-      '@causal/core':
+      '@vpavlyshyn/core':
         specifier: workspace:*
         version: link:../../packages/core
-      '@causal/edits':
+      '@vpavlyshyn/edits':
         specifier: workspace:*
         version: link:../../packages/edits
-      '@causal/render':
+      '@vpavlyshyn/render':
         specifier: workspace:*
         version: link:../../packages/render
-      '@causal/spec':
+      '@vpavlyshyn/spec':
         specifier: workspace:*
         version: link:../../spec
     devDependencies:
@@ -63,19 +63,19 @@ importers:
 
   packages/cli:
     dependencies:
-      '@causal/core':
+      '@vpavlyshyn/core':
         specifier: workspace:*
         version: link:../core
-      '@causal/render':
+      '@vpavlyshyn/render':
         specifier: workspace:*
         version: link:../render
-      '@causal/spec':
+      '@vpavlyshyn/spec':
         specifier: workspace:*
         version: link:../../spec
 
   packages/core:
     dependencies:
-      '@causal/spec':
+      '@vpavlyshyn/spec':
         specifier: workspace:*
         version: link:../../spec
       ajv:
@@ -94,10 +94,10 @@ importers:
 
   packages/edits:
     dependencies:
-      '@causal/core':
+      '@vpavlyshyn/core':
         specifier: workspace:*
         version: link:../core
-      '@causal/spec':
+      '@vpavlyshyn/spec':
         specifier: workspace:*
         version: link:../../spec
       jsonc-parser:
@@ -106,10 +106,10 @@ importers:
 
   packages/render:
     dependencies:
-      '@causal/core':
+      '@vpavlyshyn/core':
         specifier: workspace:*
         version: link:../core
-      '@causal/spec':
+      '@vpavlyshyn/spec':
         specifier: workspace:*
         version: link:../../spec
       elkjs:

@@ -1,5 +1,10 @@
-import { DEFAULT_ASSERTION_STATUS } from '@causal/spec';
-import type { CanonicalDocument, CanonicalRelation, CanonicalVariable, View } from '@causal/core';
+import { DEFAULT_ASSERTION_STATUS } from '@vpavlyshyn/spec';
+import type {
+  CanonicalDocument,
+  CanonicalRelation,
+  CanonicalVariable,
+  View,
+} from '@vpavlyshyn/core';
 
 export class UnknownViewError extends Error {
   constructor(

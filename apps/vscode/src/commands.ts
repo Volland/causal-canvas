@@ -1,8 +1,8 @@
 import { mkdirSync, writeFileSync } from 'node:fs';
 import { basename, dirname, join } from 'node:path';
 import * as vscode from 'vscode';
-import { formatDocument, loadConfig, parseDocument, validate } from '@causal/core';
-import { render, type OutputFormat } from '@causal/render';
+import { formatDocument, loadConfig, parseDocument, validate } from '@vpavlyshyn/core';
+import { render, type OutputFormat } from '@vpavlyshyn/render';
 import type { ActiveDocument } from './active.js';
 import type { FigurePreview } from './preview.js';
 import { applyText } from './textEdit.js';

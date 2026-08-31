@@ -10,8 +10,8 @@ import {
   summarize as summarizeModel,
   validate,
   type Diagnostic,
-} from '@causal/core';
-import { render, UnknownThemeError, UnknownViewError, type OutputFormat } from '@causal/render';
+} from '@vpavlyshyn/core';
+import { render, UnknownThemeError, UnknownViewError, type OutputFormat } from '@vpavlyshyn/render';
 import { toJson, toText, summarize, type FileResult } from './report.js';
 
 export const VERSION = '0.1.0';

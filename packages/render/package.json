@@ -1,5 +1,5 @@
 {
-  "name": "@causal/render",
+  "name": "@vpavlyshyn/render",
   "version": "0.1.0",
   "description": "Deterministic layout and figure emission for CausalJSON models",
   "license": "Apache-2.0",
@@ -13,19 +13,33 @@
     }
   },
   "files": [
-    "dist"
+    "dist",
+    "!dist/**/*.test.*",
+    "!dist/**/testutil.*"
   ],
   "scripts": {
     "build": "tsc",
     "typecheck": "tsc --noEmit"
   },
   "dependencies": {
-    "@causal/core": "workspace:*",
-    "@causal/spec": "workspace:*",
+    "@vpavlyshyn/core": "workspace:*",
+    "@vpavlyshyn/spec": "workspace:*",
     "elkjs": "^0.9.3",
     "pdf-lib": "^1.17.1"
   },
   "optionalDependencies": {
     "@resvg/resvg-js": "^2.6.2"
+  },
+  "publishConfig": {
+    "access": "public"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/Volland/causal-canvas.git",
+    "directory": "packages/render"
+  },
+  "homepage": "https://volland.github.io/causal-canvas/",
+  "bugs": {
+    "url": "https://github.com/Volland/causal-canvas/issues"
   }
 }

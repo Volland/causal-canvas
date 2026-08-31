@@ -1,5 +1,5 @@
 import ElkConstructor from 'elkjs/lib/elk.bundled.js';
-import type { CanonicalRelation, CanonicalVariable } from '@causal/core';
+import type { CanonicalRelation, CanonicalVariable } from '@vpavlyshyn/core';
 import type { ResolvedView } from './resolve.js';
 import type { Theme } from './theme.js';
 

@@ -1,8 +1,8 @@
 {
   "@context": {
     "@version": 1.1,
-    "@base": "https://causaljson.org/model/",
-    "cc": "https://causaljson.org/ns/v1#",
+    "@base": "https://causalcanvas.org/model/",
+    "cc": "https://causalcanvas.org/ns/v1#",
     "dcterms": "http://purl.org/dc/terms/",
     "skos": "http://www.w3.org/2004/02/skos/core#",
     "prov": "http://www.w3.org/ns/prov#",

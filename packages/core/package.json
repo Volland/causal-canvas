@@ -1,5 +1,5 @@
 {
-  "name": "@causal/core",
+  "name": "@vpavlyshyn/core",
   "version": "0.1.0",
   "description": "Parse, normalize, validate, and lint CausalJSON documents",
   "license": "Apache-2.0",
@@ -17,19 +17,33 @@
     }
   },
   "files": [
-    "dist"
+    "dist",
+    "!dist/**/*.test.*",
+    "!dist/**/testutil.*"
   ],
   "scripts": {
     "build": "tsc",
     "typecheck": "tsc --noEmit"
   },
   "dependencies": {
-    "@causal/spec": "workspace:*",
+    "@vpavlyshyn/spec": "workspace:*",
     "ajv": "^8.17.1",
     "jsonc-parser": "^3.3.1",
     "jsonld": "^8.3.3"
   },
   "devDependencies": {
     "@types/jsonld": "^1.5.15"
+  },
+  "publishConfig": {
+    "access": "public"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/Volland/causal-canvas.git",
+    "directory": "packages/core"
+  },
+  "homepage": "https://volland.github.io/causal-canvas/",
+  "bugs": {
+    "url": "https://github.com/Volland/causal-canvas/issues"
   }
 }

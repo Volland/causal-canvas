@@ -4,11 +4,7 @@
   "title": "CausalJSON 0.1",
   "description": "A JSON-LD-native, schema-validated document format for causal models.",
   "type": "object",
-  "required": [
-    "causal",
-    "profile",
-    "variables"
-  ],
+  "required": ["causal", "profile", "variables"],
   "unevaluatedProperties": false,
   "properties": {
     "$schema": {
@@ -45,12 +41,7 @@
     },
     "profile": {
       "description": "Structural class. Selects the validator and the legal relation kinds.",
-      "enum": [
-        "dag",
-        "admg",
-        "pag",
-        "cld"
-      ]
+      "enum": ["dag", "admg", "pag", "cld"]
     },
     "id": {
       "$ref": "#/$defs/slug"
@@ -154,9 +145,7 @@
     },
     "variableObject": {
       "type": "object",
-      "required": [
-        "id"
-      ],
+      "required": ["id"],
       "unevaluatedProperties": false,
       "properties": {
         "id": {
@@ -170,26 +159,13 @@
         },
         "role": {
           "description": "Causal role in the question being asked.",
-          "enum": [
-            "exposure",
-            "outcome",
-            "adjusted",
-            "instrument",
-            "selected"
-          ]
+          "enum": ["exposure", "outcome", "adjusted", "instrument", "selected"]
         },
         "latent": {
           "type": "boolean"
         },
         "type": {
-          "enum": [
-            "binary",
-            "categorical",
-            "ordinal",
-            "continuous",
-            "count",
-            "time"
-          ]
+          "enum": ["binary", "categorical", "ordinal", "continuous", "count", "time"]
         },
         "unit": {
           "type": "string"
@@ -210,9 +186,7 @@
             },
             {
               "type": "object",
-              "required": [
-                "$ref"
-              ],
+              "required": ["$ref"],
               "properties": {
                 "$ref": {
                   "type": "string"
@@ -253,10 +227,7 @@
     },
     "relationObject": {
       "type": "object",
-      "required": [
-        "from",
-        "to"
-      ],
+      "required": ["from", "to"],
       "unevaluatedProperties": false,
       "properties": {
         "id": {
@@ -270,13 +241,7 @@
         },
         "kind": {
           "description": "Legality is profile-gated. See CausalJSON 0.1, Edge Kinds.",
-          "enum": [
-            "directed",
-            "bidirected",
-            "undirected",
-            "partially-directed",
-            "nondirected"
-          ],
+          "enum": ["directed", "bidirected", "undirected", "partially-directed", "nondirected"],
           "default": "directed"
         },
         "label": {
@@ -284,11 +249,7 @@
         },
         "sign": {
           "description": "Causal loop diagram layer. Polarity of the influence.",
-          "enum": [
-            "+",
-            "-",
-            "unknown"
-          ]
+          "enum": ["+", "-", "unknown"]
         },
         "delay": {
           "description": "Causal loop diagram layer. Lag on the influence.",
@@ -319,12 +280,7 @@
       "unevaluatedProperties": false,
       "properties": {
         "status": {
-          "enum": [
-            "proposed",
-            "accepted",
-            "disputed",
-            "rejected"
-          ]
+          "enum": ["proposed", "accepted", "disputed", "rejected"]
         },
         "assertedBy": {
           "type": "string"
@@ -353,9 +309,7 @@
     },
     "view": {
       "type": "object",
-      "required": [
-        "id"
-      ],
+      "required": ["id"],
       "unevaluatedProperties": false,
       "properties": {
         "id": {
@@ -391,22 +345,12 @@
             "status": {
               "anyOf": [
                 {
-                  "enum": [
-                    "proposed",
-                    "accepted",
-                    "disputed",
-                    "rejected"
-                  ]
+                  "enum": ["proposed", "accepted", "disputed", "rejected"]
                 },
                 {
                   "type": "array",
                   "items": {
-                    "enum": [
-                      "proposed",
-                      "accepted",
-                      "disputed",
-                      "rejected"
-                    ]
+                    "enum": ["proposed", "accepted", "disputed", "rejected"]
                   }
                 }
               ]
@@ -453,26 +397,15 @@
       "unevaluatedProperties": false,
       "properties": {
         "mode": {
-          "enum": [
-            "auto",
-            "manual"
-          ],
+          "enum": ["auto", "manual"],
           "default": "auto"
         },
         "direction": {
-          "enum": [
-            "LR",
-            "RL",
-            "TB",
-            "BT"
-          ],
+          "enum": ["LR", "RL", "TB", "BT"],
           "default": "LR"
         },
         "rank": {
-          "enum": [
-            "none",
-            "exposure-to-outcome"
-          ],
+          "enum": ["none", "exposure-to-outcome"],
           "default": "none"
         },
         "pin": {

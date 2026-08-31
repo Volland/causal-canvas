@@ -23,7 +23,7 @@ const rules = (text: string, config?: Parameters<typeof lint>[1]) =>
 
 test('version fields that agree are accepted', () => {
   const text = JSON.stringify({
-    $schema: 'https://causaljson.org/schema/0.1.json',
+    $schema: 'https://causalcanvas.org/schema/0.1.json',
     causal: '0.1',
     profile: 'dag',
     variables: ['a'],
@@ -33,7 +33,7 @@ test('version fields that agree are accepted', () => {
 
 test('version fields that disagree report both declared versions', () => {
   const text = JSON.stringify({
-    $schema: 'https://causaljson.org/schema/0.9.json',
+    $schema: 'https://causalcanvas.org/schema/0.9.json',
     causal: '0.1',
     profile: 'dag',
     variables: ['a'],
@@ -233,12 +233,12 @@ test('a normalized document expands, with relations as identified entities', asy
   const result = validate(doc({ variables: ['smoking', 'tar'], relations: ['smoking -> tar'] }));
   const expanded = (await expand(result.document!)) as any[];
   const graph = expanded[0];
-  const relations = graph['https://causaljson.org/ns/v1#hasRelation'];
+  const relations = graph['https://causalcanvas.org/ns/v1#hasRelation'];
   assert.equal(relations.length, 1);
   assert.match(relations[0]['@id'], /smoking--directed--tar$/);
   assert.equal(
-    relations[0]['https://causaljson.org/ns/v1#from'][0]['@id'],
-    'https://causaljson.org/model/smoking',
+    relations[0]['https://causalcanvas.org/ns/v1#from'][0]['@id'],
+    'https://causalcanvas.org/model/smoking',
   );
 });
 
@@ -252,12 +252,12 @@ test('view contents do not become triples', async () => {
     }),
   );
   const expanded = (await expand(result.document!)) as any[];
-  const views = expanded[0]['https://causaljson.org/ns/v1#views'];
+  const views = expanded[0]['https://causalcanvas.org/ns/v1#views'];
   assert.equal(views.length, 1, 'views is carried as a single JSON literal');
   assert.ok('@value' in views[0], 'the literal is not decomposed');
   const serialized = JSON.stringify(expanded);
   assert.ok(
-    !serialized.includes('https://causaljson.org/model/fig-1'),
+    !serialized.includes('https://causalcanvas.org/model/fig-1'),
     'no view identifier appears as a subject',
   );
 });

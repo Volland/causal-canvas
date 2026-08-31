@@ -1,5 +1,5 @@
 import * as vscode from 'vscode';
-import { lint, loadConfig, type Diagnostic as CausalDiagnostic } from '@causal/core';
+import { lint, loadConfig, type Diagnostic as CausalDiagnostic } from '@vpavlyshyn/core';
 
 export const isCausalDocument = (document: vscode.TextDocument): boolean =>
   document.uri.fsPath.endsWith('.causal.json');

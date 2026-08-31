@@ -1,4 +1,4 @@
-import { DEFAULT_ASSERTION_STATUS } from '@causal/spec';
+import { DEFAULT_ASSERTION_STATUS } from '@vpavlyshyn/spec';
 import { CausalGraph } from './graph.js';
 import { toSourcePointer } from './pointer.js';
 import type {

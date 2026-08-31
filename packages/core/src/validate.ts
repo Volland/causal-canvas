@@ -1,5 +1,5 @@
 import Ajv2020Module, { type ErrorObject, type ValidateFunction } from 'ajv/dist/2020.js';
-import { FORMAT_VERSION, PROFILES, schema, type ProfileName } from '@causal/spec';
+import { FORMAT_VERSION, PROFILES, schema, type ProfileName } from '@vpavlyshyn/spec';
 import { CausalGraph } from './graph.js';
 import { resolvePointer, toSourcePointer } from './pointer.js';
 import type { CanonicalDocument, Diagnostic } from './types.js';

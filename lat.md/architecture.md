@@ -31,8 +31,8 @@ A pnpm monorepo. The specification is a first-class package alongside the code t
 ```
 
 Implemented today: `spec/` ([[spec/src/index.ts#ARROW_PATTERN|bundled artifacts]]),
-[[packages/core/src/index.ts|@causal/core]], [[packages/render/src/index.ts#render|@causal/render]],
-[[packages/cli/src/index.ts#run|@causal/cli]], [[packages/edits/src/index.ts#pinVariable|@causal/edits]],
+[[packages/core/src/index.ts|@vpavlyshyn/core]], [[packages/render/src/index.ts#render|@vpavlyshyn/render]],
+[[packages/cli/src/index.ts#run|@vpavlyshyn/cli]], [[packages/edits/src/index.ts#pinVariable|@vpavlyshyn/edits]],
 and the [[extension#Causal Canvas extension|Causal Canvas extension]]. `packages/analysis` and
 `packages/mcp` are planned, not built.
 

@@ -9,10 +9,10 @@ import schemaJson from './artifacts/schema-0.1.json' with { type: 'json' };
 import contextJson from './artifacts/context-v1.json' with { type: 'json' };
 
 export const FORMAT_VERSION = '0.1' as const;
-export const SCHEMA_URL = 'https://causaljson.org/schema/0.1.json' as const;
-export const CONTEXT_URL = 'https://causaljson.org/ns/v1' as const;
-export const NAMESPACE = 'https://causaljson.org/ns/v1#' as const;
-export const BASE_IRI = 'https://causaljson.org/model/' as const;
+export const SCHEMA_URL = 'https://causalcanvas.org/schema/0.1.json' as const;
+export const CONTEXT_URL = 'https://causalcanvas.org/ns/v1' as const;
+export const NAMESPACE = 'https://causalcanvas.org/ns/v1#' as const;
+export const BASE_IRI = 'https://causalcanvas.org/model/' as const;
 
 export const schema: Record<string, unknown> = schemaJson as Record<string, unknown>;
 export const context: Record<string, unknown> = contextJson as Record<string, unknown>;

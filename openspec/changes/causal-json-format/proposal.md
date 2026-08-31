@@ -12,12 +12,12 @@ This change establishes the format and the smallest end-to-end toolchain that pr
 
 - **New format: CausalJSON** (`.causal.json`) — a JSON-LD-native, JSON Schema-validated document format for causal models. Covers four structural profiles (`dag`, `admg`, `pag`, `cld`) with additive quantitative layers for Bayesian-network and structural-causal-model content.
 - **New published artifacts at a permanent namespace** — a versioned JSON Schema and a versioned JSON-LD `@context`, both immutable once published.
-- **New package `@causal/core`** — parse, shorthand normalization, JSON-LD expansion, schema validation, referential and structural checks, and a configurable lint pipeline emitting JSON Pointer-located diagnostics.
-- **New package `@causal/render`** — deterministic ELK-based layout plus SVG, PDF, and PNG emitters driven by named views declared in the document.
-- **New package `@causal/cli`** — `causal validate`, `causal lint`, `causal fmt`, `causal render`, `causal summarize`, with machine-readable output and CI-appropriate exit codes.
+- **New package `@vpavlyshyn/core`** — parse, shorthand normalization, JSON-LD expansion, schema validation, referential and structural checks, and a configurable lint pipeline emitting JSON Pointer-located diagnostics.
+- **New package `@vpavlyshyn/render`** — deterministic ELK-based layout plus SVG, PDF, and PNG emitters driven by named views declared in the document.
+- **New package `@vpavlyshyn/cli`** — `causal validate`, `causal lint`, `causal fmt`, `causal render`, `causal summarize`, with machine-readable output and CI-appropriate exit codes.
 - **Conformance test suite** — a corpus of valid and invalid documents with expected diagnostics, so the format is defined by tests and not only by prose.
 
-Not in this change, but decided and recorded in `design.md` so this change does not foreclose them: the causal analysis engine (`@causal/analysis`), the VS Code extension (`apps/vscode`), foreign-format exporters, and the MCP / VS Code Language Model Tools adapters.
+Not in this change, but decided and recorded in `design.md` so this change does not foreclose them: the causal analysis engine (`@vpavlyshyn/analysis`), the VS Code extension (`apps/vscode`), foreign-format exporters, and the MCP / VS Code Language Model Tools adapters.
 
 ## Capabilities
 

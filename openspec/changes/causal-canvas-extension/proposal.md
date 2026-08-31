@@ -13,10 +13,10 @@ This change delivers that surface — a VS Code custom text editor where the doc
 - **New `apps/vscode`** — the Causal Canvas extension, registering a custom text editor for `.causal.json`.
 - **Interactive canvas** — drag variables, draw relations, rename labels, delete elements, switch between the document's views, and choose the relation kind to draw. Dragging writes an explicit pin into the active view rather than a free-floating coordinate.
 - **Live publication preview** — a pane showing the actual SVG the emitter produces, so what ships to the manuscript is visible while editing rather than approximated.
-- **Diagnostics in the Problems panel** — every `@causal/core` diagnostic surfaced at its JSON Pointer's line and column, including the causal lints.
+- **Diagnostics in the Problems panel** — every `@vpavlyshyn/core` diagnostic surfaced at its JSON Pointer's line and column, including the causal lints.
 - **Schema-driven text editing** — `.causal.json` files get validation and completion in the plain text editor from the bundled JSON Schema, with no extra configuration.
 - **Commands** — render the current view to SVG, PDF, or PNG; format the document; open the preview; switch the active view.
-- **New shared package `@causal/edits`** — the surgical JSON text-edit layer used by the extension, kept separate so it is testable without a running editor.
+- **New shared package `@vpavlyshyn/edits`** — the surgical JSON text-edit layer used by the extension, kept separate so it is testable without a running editor.
 
 ## Capabilities
 
@@ -31,9 +31,9 @@ None. This change adds a surface over the existing format and toolchain; no requ
 
 ## Impact
 
-**New code.** `apps/vscode` and `packages/edits` join the workspace. The extension depends on `@causal/core`, `@causal/render`, `@causal/spec`, and `@causal/edits` — it adds no new capability of its own beyond presentation and editing.
+**New code.** `apps/vscode` and `packages/edits` join the workspace. The extension depends on `@vpavlyshyn/core`, `@vpavlyshyn/render`, `@vpavlyshyn/spec`, and `@vpavlyshyn/edits` — it adds no new capability of its own beyond presentation and editing.
 
-**New external dependencies.** `react`, `react-dom`, and `@xyflow/react` for the canvas (all MIT), `esbuild` to bundle the extension host and webview bundles, and `@types/vscode`. `jsonc-parser` is already a dependency of `@causal/core`.
+**New external dependencies.** `react`, `react-dom`, and `@xyflow/react` for the canvas (all MIT), `esbuild` to bundle the extension host and webview bundles, and `@types/vscode`. `jsonc-parser` is already a dependency of `@vpavlyshyn/core`.
 
 **Verification limits.** The pure layers — surgical edits, the webview message protocol, diagnostic mapping — are unit tested. The rendered UI itself cannot be exercised in this environment and is verified by build and by manual smoke testing in a real editor.
 

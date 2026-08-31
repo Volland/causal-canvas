@@ -21,13 +21,13 @@ Two existing guarantees constrain everything below. Round-trip preservation is a
 - Format changes. If the canvas wants something CausalJSON cannot express, that is a finding for a later change.
 - A general diagramming tool. The canvas edits causal models, not arbitrary shapes.
 - Byte-identical WYSIWYG between canvas and figure. D13 accepted the gap and closes it with the preview pane instead.
-- Reimplementing analysis. The extension surfaces what `@causal/core` already computes.
+- Reimplementing analysis. The extension surfaces what `@vpavlyshyn/core` already computes.
 
 ## Decisions
 
 ### E1 — Canvas edits are surgical text edits in a separate package
 
-**Decision.** Every canvas action is translated into a `jsonc-parser` edit against the document text and applied as a `WorkspaceEdit`. That translation lives in a new `@causal/edits` package, not in the extension.
+**Decision.** Every canvas action is translated into a `jsonc-parser` edit against the document text and applied as a `WorkspaceEdit`. That translation lives in a new `@vpavlyshyn/edits` package, not in the extension.
 
 **Rationale.** D13 already forbids parse-mutate-reserialise, because it reformats the whole file on every drag and silently reorders keys — violating §9.1 and destroying diffs. What D13 did not say is *where* that logic lives. Putting it in the extension would make the single most breakable guarantee in the product testable only by hand in a running editor. As its own package it is tested headlessly against the same preservation fixtures the format uses.
 
@@ -81,7 +81,7 @@ The union is exported as types shared by both sides and validated at the boundar
 
 ### E6 — The preview renders the real emitter SVG in a webview
 
-**Decision.** The preview pane displays exactly what `@causal/render` emits for the active view, refusing to render when the document has error-severity diagnostics.
+**Decision.** The preview pane displays exactly what `@vpavlyshyn/render` emits for the active view, refusing to render when the document has error-severity diagnostics.
 
 **Rationale.** D13 accepted that React Flow will not look identical to the figure, and named the preview as the mitigation. That only works if the preview is the genuine artifact rather than a second approximation — so it calls the same emitter the CLI does.
 
@@ -107,7 +107,7 @@ Refusing on errors matters because the failure mode being avoided is shipping a 
 
 ## Risks / Trade-offs
 
-**The UI layer cannot be tested in this environment** → Push everything testable out of it: edits into `@causal/edits`, geometry into `@causal/render`, diagnostics into `@causal/core`. What remains untested is rendering and pointer handling, verified by build and by manual smoke testing.
+**The UI layer cannot be tested in this environment** → Push everything testable out of it: edits into `@vpavlyshyn/edits`, geometry into `@vpavlyshyn/render`, diagnostics into `@vpavlyshyn/core`. What remains untested is rendering and pointer handling, verified by build and by manual smoke testing.
 
 **A drag storm produces an edit storm** → Positions are written on drag *stop*, not during the drag, so one gesture is one undo step and one document edit.
 
