@@ -1,0 +1,26 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="335.5" height="416.89" viewBox="-12 -12 335.5 416.89">
+<defs>
+<marker id="e-arrow" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#000000"/></marker><marker id="e-odot" viewBox="0 0 10 10" refX="5" refY="5" markerWidth="6" markerHeight="6" orient="auto"><circle cx="5" cy="5" r="3.2" fill="#ffffff" stroke="#000000" stroke-width="1.4"/></marker>
+<marker id="h-arrow" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#000000"/></marker><marker id="h-odot" viewBox="0 0 10 10" refX="5" refY="5" markerWidth="6" markerHeight="6" orient="auto"><circle cx="5" cy="5" r="3.2" fill="#ffffff" stroke="#000000" stroke-width="1.4"/></marker>
+</defs>
+<rect x="-12" y="-12" width="335.5" height="416.89" fill="#ffffff"/>
+<g class="relations">
+<path id="workload--directed--stress" d="M66.81,343.27 L12,267.51 L12,125.51 L68.53,49.6" fill="none" stroke="#000000" stroke-width="1.1" marker-end="url(#e-arrow)"/>
+<path id="stress--directed--defect_rate" d="M82.75,50 L81.38,123.51" fill="none" stroke="#000000" stroke-width="1.1" marker-end="url(#e-arrow)"/>
+<path id="defect_rate--directed--rework" d="M81,163.51 L81,229.51" fill="none" stroke="#000000" stroke-width="1.1" marker-end="url(#e-arrow)"/>
+<path id="rework--directed--workload" d="M81,269.51 L81,342.89" fill="none" stroke="#000000" stroke-width="1.1" marker-end="url(#e-arrow)"/>
+<text x="81" y="357.89" text-anchor="middle" font-family="Times, &quot;Times New Roman&quot;, serif" font-size="11" fill="#000000">reinforcing</text>
+<path id="stress--directed--sick_leave" d="M108.49,49.21 L207.64,124.3" fill="none" stroke="#000000" stroke-width="1.1" marker-end="url(#e-arrow)"/>
+<path id="sick_leave--directed--team_capacity" d="M233,163.51 L233,229.51" fill="none" stroke="#000000" stroke-width="1.1" marker-end="url(#e-arrow)"/>
+<path id="team_capacity--directed--workload" d="M207.27,268.71 L106.73,343.69" fill="none" stroke="#000000" stroke-width="1.1" marker-end="url(#e-arrow)"/>
+<text x="81" y="357.89" text-anchor="middle" font-family="Times, &quot;Times New Roman&quot;, serif" font-size="11" fill="#000000">balancing</text>
+</g>
+<g class="variables">
+<g id="workload"><rect x="35.5" y="344.89" width="91" height="36" rx="4" fill="#ffffff" stroke="#000000" stroke-width="1.2"/><text text-anchor="middle" font-family="Times, &quot;Times New Roman&quot;, serif" font-size="15" fill="#000000"><tspan x="81" y="368.14">Workload</tspan></text></g>
+<g id="stress"><rect x="46.13" y="12" width="74" height="36" rx="4" fill="#ffffff" stroke="#000000" stroke-width="1.2"/><text text-anchor="middle" font-family="Times, &quot;Times New Roman&quot;, serif" font-size="15" fill="#000000"><tspan x="83.13" y="35.25">Stress</tspan></text></g>
+<g id="defect_rate"><rect x="23" y="125.51" width="116" height="36" rx="4" fill="#ffffff" stroke="#000000" stroke-width="1.2"/><text text-anchor="middle" font-family="Times, &quot;Times New Roman&quot;, serif" font-size="15" fill="#000000"><tspan x="81" y="148.76">Defect rate</tspan></text></g>
+<g id="rework"><rect x="44" y="231.51" width="74" height="36" rx="4" fill="#ffffff" stroke="#000000" stroke-width="1.2"/><text text-anchor="middle" font-family="Times, &quot;Times New Roman&quot;, serif" font-size="15" fill="#000000"><tspan x="81" y="254.76">Rework</tspan></text></g>
+<g id="sick_leave"><rect x="179" y="125.51" width="108" height="36" rx="4" fill="#ffffff" stroke="#000000" stroke-width="1.2"/><text text-anchor="middle" font-family="Times, &quot;Times New Roman&quot;, serif" font-size="15" fill="#000000"><tspan x="233" y="148.76">Sick leave</tspan></text></g>
+<g id="team_capacity"><rect x="166.5" y="231.51" width="133" height="36" rx="4" fill="#ffffff" stroke="#000000" stroke-width="1.2"/><text text-anchor="middle" font-family="Times, &quot;Times New Roman&quot;, serif" font-size="15" fill="#000000"><tspan x="233" y="254.76">Team capacity</tspan></text></g>
+</g>
+</svg>

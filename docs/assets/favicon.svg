@@ -1,0 +1,14 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 32 32">
+  <rect width="32" height="32" rx="7" fill="#1f2933"/>
+  <g stroke="#fff" stroke-width="1.8" fill="none">
+    <path d="M9 10 h6" marker-end="url(#a)"/>
+    <path d="M19 10 v0"/>
+  </g>
+  <defs><marker id="a" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="5" markerHeight="5" orient="auto"><path d="M0,0 L10,5 L0,10 z" fill="#fff"/></marker></defs>
+  <circle cx="8" cy="10" r="3" fill="#fff"/>
+  <circle cx="24" cy="10" r="3" fill="#fff"/>
+  <circle cx="16" cy="23" r="3" fill="#7dd3fc"/>
+  <g stroke="#fff" stroke-width="1.6" fill="none" stroke-linecap="round">
+    <path d="M11 10 h10"/><path d="M9.5 12.6 L14.5 20.4"/><path d="M22.5 12.6 L17.5 20.4"/>
+  </g>
+</svg>

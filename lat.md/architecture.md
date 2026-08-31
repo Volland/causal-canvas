@@ -89,6 +89,14 @@ For the canvas this has a hard implementation consequence: edits are applied as 
 
 The VS Code integration is a **Custom Text Editor**, so the document genuinely is the `.causal.json` text. Undo and redo come for free, text and canvas open side by side on one file, and version control behaves normally.
 
+## Public Website
+
+`docs/` holds the GitHub Pages site: a landing page in English and the German legal pages required of a German operator — Impressum, Datenschutzerklärung, and Nutzungsbedingungen.
+
+One constraint on it is not cosmetic. The site claims that the project tracks nothing, so **the site itself must load zero external resources**: no web fonts, no CDN, no analytics, no embedded third-party content. Everything is served from the same origin, which is what makes the claim true rather than aspirational — and what means no cookie banner is needed under § 25 TDDDG.
+
+The privacy claim about the *software* rests on [[format#CausalJSON#Document Identity|bundled schema and context]]: validation and rendering never touch the network, so models never leave the machine.
+
 ## Delivery Phases
 
 The build order is chosen to test the riskiest assumption first: that this JSON is pleasant to author by hand. Everything else sits downstream of it.

@@ -8,7 +8,9 @@
         "name": "JavaScript/TypeScript",
         "version": ">=22",
         "confidence": "high",
-        "markers": ["package.json"]
+        "markers": [
+          "package.json"
+        ]
       }
     ],
     "frameworks": [],
@@ -40,7 +42,10 @@
   "structure": {
     "isMonorepo": true,
     "workspaces": [],
-    "mainDirectories": ["examples", "spec"],
+    "mainDirectories": [
+      "examples",
+      "spec"
+    ],
     "gitBranches": null
   },
   "customNotes": [],
@@ -57,7 +62,9 @@
       "purpose": null,
       "fileCount": 1,
       "lastAccessed": 1788183866825,
-      "keyFiles": ["README.md"]
+      "keyFiles": [
+        "README.md"
+      ]
     },
     "examples": {
       "path": "examples",
@@ -77,21 +84,33 @@
       "purpose": null,
       "fileCount": 10,
       "lastAccessed": 1788183866828,
-      "keyFiles": ["agents.md", "architecture.md", "cli.md", "decisions.md", "format.md"]
+      "keyFiles": [
+        "agents.md",
+        "architecture.md",
+        "cli.md",
+        "decisions.md",
+        "format.md"
+      ]
     },
     "manuscript": {
       "path": "manuscript",
       "purpose": null,
       "fileCount": 3,
       "lastAccessed": 1788183866829,
-      "keyFiles": ["_quarto.yml", "causal.config.json", "index.qmd"]
+      "keyFiles": [
+        "_quarto.yml",
+        "causal.config.json",
+        "index.qmd"
+      ]
     },
     "openspec": {
       "path": "openspec",
       "purpose": null,
       "fileCount": 1,
       "lastAccessed": 1788183866829,
-      "keyFiles": ["config.yaml"]
+      "keyFiles": [
+        "config.yaml"
+      ]
     },
     "packages": {
       "path": "packages",
@@ -105,42 +124,61 @@
       "purpose": "Test specifications",
       "fileCount": 5,
       "lastAccessed": 1788183866830,
-      "keyFiles": ["CHANGELOG.md", "LICENSE", "causaljson-0.1.md", "package.json", "tsconfig.json"]
+      "keyFiles": [
+        "CHANGELOG.md",
+        "LICENSE",
+        "causaljson-0.1.md",
+        "package.json",
+        "tsconfig.json"
+      ]
     },
     "manuscript/models": {
       "path": "manuscript/models",
       "purpose": "Data models",
       "fileCount": 2,
       "lastAccessed": 1788183866830,
-      "keyFiles": ["minimum-wage.causal.json", "smoking-cancer.causal.json"]
+      "keyFiles": [
+        "minimum-wage.causal.json",
+        "smoking-cancer.causal.json"
+      ]
     },
     "manuscript/scripts": {
       "path": "manuscript/scripts",
       "purpose": "Build/utility scripts",
       "fileCount": 1,
       "lastAccessed": 1788183866831,
-      "keyFiles": ["figures.mjs"]
+      "keyFiles": [
+        "figures.mjs"
+      ]
     },
     "spec/dist": {
       "path": "spec/dist",
       "purpose": "Distribution/build output",
       "fileCount": 4,
       "lastAccessed": 1788183866831,
-      "keyFiles": ["index.d.ts", "index.d.ts.map", "index.js"]
+      "keyFiles": [
+        "index.d.ts",
+        "index.d.ts.map",
+        "index.js"
+      ]
     },
     "spec/scripts": {
       "path": "spec/scripts",
       "purpose": "Build/utility scripts",
       "fileCount": 1,
       "lastAccessed": 1788183866831,
-      "keyFiles": ["publish-artifacts.mjs"]
+      "keyFiles": [
+        "publish-artifacts.mjs"
+      ]
     },
     "spec/src": {
       "path": "spec/src",
       "purpose": "Source code",
       "fileCount": 1,
       "lastAccessed": 1788183866831,
-      "keyFiles": ["index.ts"]
+      "keyFiles": [
+        "index.ts"
+      ]
     }
   },
   "hotPaths": [],

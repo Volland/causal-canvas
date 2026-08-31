@@ -1,0 +1,18 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="512.91" height="98" viewBox="-12 -12 512.91 98">
+<defs>
+<marker id="e-arrow" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#000000"/></marker><marker id="e-odot" viewBox="0 0 10 10" refX="5" refY="5" markerWidth="6" markerHeight="6" orient="auto"><circle cx="5" cy="5" r="3.2" fill="#ffffff" stroke="#000000" stroke-width="1.4"/></marker>
+<marker id="h-arrow" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#000000"/></marker><marker id="h-odot" viewBox="0 0 10 10" refX="5" refY="5" markerWidth="6" markerHeight="6" orient="auto"><circle cx="5" cy="5" r="3.2" fill="#ffffff" stroke="#000000" stroke-width="1.4"/></marker>
+</defs>
+<rect x="-12" y="-12" width="512.91" height="98" fill="#ffffff"/>
+<g class="relations">
+<path id="smoking--directed--tar" d="M96.99,40.51 L163.47,35.18" fill="none" stroke="#000000" stroke-width="1.1" marker-end="url(#e-arrow)"/>
+<path id="tar--directed--cancer" d="M292.45,34.73 L358.92,39.6" fill="none" stroke="#000000" stroke-width="1.1" marker-end="url(#e-arrow)"/>
+<path id="smoking--bidirected--cancer" d="M96.98,49.44 L165.46,58 L290.46,58 L358.92,50.54" fill="none" stroke="#000000" stroke-width="1.1" marker-start="url(#e-arrow)" marker-end="url(#e-arrow)" stroke-dasharray="6 4"/>
+<text x="290.46" y="53" text-anchor="middle" font-family="Times, &quot;Times New Roman&quot;, serif" font-size="11" fill="#000000">unmeasured confounding</text>
+</g>
+<g class="variables">
+<g id="smoking"><rect x="12" y="26" width="83" height="36" rx="4" fill="#ffffff" stroke="#000000" stroke-width="1.2"/><text text-anchor="middle" font-family="Times, &quot;Times New Roman&quot;, serif" font-size="15" fill="#000000"><tspan x="53.5" y="49.25">Smoking</tspan></text></g>
+<g id="tar"><rect x="165.46" y="12" width="125" height="36" rx="4" fill="#ffffff" stroke="#000000" stroke-width="1.2"/><text text-anchor="middle" font-family="Times, &quot;Times New Roman&quot;, serif" font-size="15" fill="#000000"><tspan x="227.96" y="35.25">Tar deposits</tspan></text></g>
+<g id="cancer"><rect x="360.91" y="26" width="116" height="36" rx="4" fill="#ffffff" stroke="#000000" stroke-width="1.2"/><text text-anchor="middle" font-family="Times, &quot;Times New Roman&quot;, serif" font-size="15" fill="#000000"><tspan x="418.91" y="49.25">Lung cancer</tspan></text></g>
+</g>
+</svg>

@@ -1,0 +1,19 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="551.77" height="214" viewBox="-12 -12 551.77 214">
+<defs>
+<marker id="e-arrow" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#000000"/></marker><marker id="e-odot" viewBox="0 0 10 10" refX="5" refY="5" markerWidth="6" markerHeight="6" orient="auto"><circle cx="5" cy="5" r="3.2" fill="#ffffff" stroke="#000000" stroke-width="1.4"/></marker>
+<marker id="h-arrow" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#000000"/></marker><marker id="h-odot" viewBox="0 0 10 10" refX="5" refY="5" markerWidth="6" markerHeight="6" orient="auto"><circle cx="5" cy="5" r="3.2" fill="#ffffff" stroke="#000000" stroke-width="1.4"/></marker>
+</defs>
+<rect x="-12" y="-12" width="551.77" height="214" fill="#ffffff"/>
+<g class="relations">
+<path id="policy_change--directed--labour_cost" d="M147,50.98 L217.34,54.23" fill="none" stroke="#000000" stroke-width="1.1" marker-end="url(#e-arrow)"/>
+<path id="labour_cost--directed--employment" d="M337.27,73.73 L405.84,92.88" fill="none" stroke="#000000" stroke-width="1.1" marker-end="url(#e-arrow)"/>
+<path id="local_demand--directed--labour_cost" d="M137.42,123.15 L218.42,84.85" fill="none" stroke="#000000" stroke-width="1.1" marker-end="url(#e-arrow)"/>
+<path id="local_demand--directed--employment" d="M147,153.4 L335.34,160 L405.92,131.25" fill="none" stroke="#000000" stroke-width="1.1" marker-end="url(#e-arrow)"/>
+</g>
+<g class="variables">
+<g id="policy_change"><rect x="20" y="12" width="125" height="72" rx="4" fill="#ffffff" stroke="#000000" stroke-width="1.2"/><text text-anchor="middle" font-family="Times, &quot;Times New Roman&quot;, serif" font-size="15" fill="#000000"><tspan x="82.5" y="35.25">Statutory</tspan><tspan x="82.5" y="53.25">minimum wage</tspan><tspan x="82.5" y="71.25">change</tspan></text></g>
+<g id="labour_cost"><rect x="219.34" y="30" width="116" height="54" rx="4" fill="#ffffff" stroke="#000000" stroke-width="1.2"/><text text-anchor="middle" font-family="Times, &quot;Times New Roman&quot;, serif" font-size="15" fill="#000000"><tspan x="277.34" y="53.25">Labour cost</tspan><tspan x="277.34" y="71.25">per hour</tspan></text></g>
+<g id="local_demand"><rect x="12" y="124" width="133" height="54" rx="4" fill="#ffffff" stroke="#000000" stroke-width="1.2"/><text text-anchor="middle" font-family="Times, &quot;Times New Roman&quot;, serif" font-size="15" fill="#000000"><tspan x="78.5" y="147.25">Local product</tspan><tspan x="78.5" y="165.25">demand</tspan></text></g>
+<g id="employment"><rect x="407.77" y="81.5" width="108" height="54" rx="4" fill="#ffffff" stroke="#000000" stroke-width="1.2"/><text text-anchor="middle" font-family="Times, &quot;Times New Roman&quot;, serif" font-size="15" fill="#000000"><tspan x="461.77" y="104.75">Employment</tspan><tspan x="461.77" y="122.75">level</tspan></text></g>
+</g>
+</svg>
