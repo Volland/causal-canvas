@@ -43,6 +43,7 @@ Ordered so the guarantee that is hardest to recover from — round-trip preserva
 - [x] 5.2 Resolve project configuration per document so severities match the CLI and CI
 - [x] 5.3 Debounce recomputation on change and clear diagnostics when a document closes
 - [x] 5.4 Implement the render, format, open-preview, and choose-view commands, scoped to CausalJSON documents
+- [x] 5.6 Implement the new-model command: profile choice, starter document, file placement, and refusal to overwrite
 - [x] 5.5 Implement the preview pane rendering the real emitter output, refusing when the document has errors
 
 ## 6. Verification and packaging

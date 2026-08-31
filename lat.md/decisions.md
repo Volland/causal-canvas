@@ -192,6 +192,14 @@ The extension registers the bundled schema for `**/*.causal.json`.
 
 **Why:** a sketch that omits `$schema` should still get completion and validation.
 
+### E9 The New-Model Starter Is Not Empty
+
+The scaffolding command writes a two-variable model demonstrating the chosen profile, rather than an empty document.
+
+**Why:** the editor only activates on `.causal.json`, so the canvas is useless until a file exists — and an empty one opens onto a blank canvas that teaches nothing. See [[extension#Causal Canvas extension#Commands#Creating A Model]].
+
+**Rejected:** an empty skeleton, which is tidier but leaves a first-time author staring at nothing; and a profile-independent starter, which would not show what `cld` is for.
+
 ## Open Questions
 
 Deferred deliberately. None of these changes the architecture, so each can be answered when real use reveals the answer.

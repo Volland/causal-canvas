@@ -25,6 +25,31 @@ A Custom Text Editor whose document is the file text, so undo, dirty state, save
 
 [[apps/vscode/src/editorProvider.ts#CausalEditorProvider]] holds the loop. The host resolves the view, computes geometry, and sends a positioned scene; the webview computes no layout of its own, which is what makes the shared-geometry invariant in [[architecture#Architecture#Shared Geometry Invariant]] hold for the canvas too.
 
+## Commands
+
+Six commands, all thin wrappers over the same core the [[cli#Command Line|command line]] uses, so the editor and the terminal never disagree about what a model means.
+
+| Command | Purpose |
+|---|---|
+| New Causal Model | create a model from a starter and open it |
+| Render Figure | emit the active view as SVG, PDF, or PNG |
+| Open Figure Preview | live [[extension#Causal Canvas extension#Figure Preview|preview]] of the real emitter output |
+| Choose Active View | pick the view used for rendering and preview |
+| Format Document | canonical formatting, preserving extensions |
+| Open in Text Editor | open the same document as text, beside the canvas |
+
+Five of them require a model to already be open and are gated on that. The sixth cannot be, which is the point of it.
+
+### Creating A Model
+
+The canvas cannot help until a file exists. The editor activates on `.causal.json`, so without a scaffolding command a first-time author must know the required members before the tool does anything at all for them.
+
+[[apps/vscode/src/scaffold.ts#newModelDocument]] builds the starter. It is deliberately **not** empty: each profile gets a two-variable model that demonstrates what that profile is for — an exposure and an outcome for the acyclic profiles, a genuine two-node feedback loop for `cld`. An empty document would open onto a blank canvas and teach nothing.
+
+Two properties are asserted by tests rather than assumed: a fresh model produces no diagnostics at any severity that would show as an error, and it is already in canonical form, so `causal fmt` on it is a no-op.
+
+[[apps/vscode/src/commands.ts#registerCommands]] resolves where the file goes — an Explorer folder first, then the workspace root, then a save dialog when there is no workspace — and refuses rather than overwriting an existing file.
+
 ## Surgical Edits
 
 Every canvas action becomes a targeted text edit, never a parse-mutate-reserialise cycle.

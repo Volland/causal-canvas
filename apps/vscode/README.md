@@ -20,8 +20,12 @@ collider. Causal Canvas reports the exact path that opens, at the exact line._
 
 ## How you use it
 
-**1. Make a file ending in `.causal.json`.** That extension is what activates the
-editor. A complete model is six lines, and you can type it by hand:
+**1. Create a model.** Run **Causal Canvas: New Causal Model**, pick a profile,
+and name the file — you get a working starter that opens straight onto the
+canvas. It is also on the Explorer's right-click menu for a folder.
+
+Or make the file yourself: any name ending in `.causal.json` activates the
+editor, and a complete model is six lines you can type by hand:
 
 ```json
 {

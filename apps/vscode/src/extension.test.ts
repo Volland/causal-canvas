@@ -3,6 +3,8 @@ import assert from 'node:assert/strict';
 import { minimalEdit } from './diff.js';
 import { parseIntent } from './protocol.js';
 import { buildScene } from './scene.js';
+import { newModelDocument, PROFILE_CHOICES, withCausalExtension } from './scaffold.js';
+import { CausalGraph, formatDocument, lint, parseDocument, validate } from '@vpavlyshyn/core';
 
 const model = JSON.stringify(
   {
@@ -165,4 +167,67 @@ test('diagnostics are attached to the elements they name', async () => {
   const node = build.scene?.nodes.find((candidate) => candidate.id === 'c');
   assert.ok(node?.problems.some((problem) => problem.startsWith('collider-adjustment')));
   assert.ok(build.scene?.problems.some((problem) => problem.rule === 'collider-adjustment'));
+});
+
+// ------------------------------------------------------------- new model
+
+test('a new model is created for every profile and validates clean', () => {
+  for (const { profile } of PROFILE_CHOICES) {
+    const text = newModelDocument({ profile });
+    const result = validate(text);
+    assert.ok(result.document, `${profile} parses`);
+    assert.equal(result.document.profile, profile);
+    assert.deepEqual(
+      result.diagnostics.filter((d) => d.severity === 'error').map((d) => d.rule),
+      [],
+      `${profile} has no errors`,
+    );
+    assert.ok(result.document.views.length > 0, `${profile} declares a view to present`);
+    assert.ok(result.document.variables.length >= 2, `${profile} is not an empty canvas`);
+  }
+});
+
+test('a new model lints clean, so a fresh file shows no problems', () => {
+  for (const { profile } of PROFILE_CHOICES) {
+    const found = lint(newModelDocument({ profile })).diagnostics.filter(
+      (d) => d.severity === 'error',
+    );
+    assert.deepEqual(
+      found.map((d) => d.rule),
+      [],
+      `${profile}`,
+    );
+  }
+});
+
+test('the cyclic starter actually contains a loop, and the acyclic one does not', () => {
+  const cld = validate(newModelDocument({ profile: 'cld' })).document!;
+  const graph = new CausalGraph(cld);
+  assert.ok(graph.findCycles().length > 0, 'cld demonstrates feedback');
+
+  const dag = validate(newModelDocument({ profile: 'dag' })).document!;
+  assert.equal(new CausalGraph(dag).findCycles().length, 0);
+});
+
+test('a new model is already in canonical form', () => {
+  const text = newModelDocument({ profile: 'dag' });
+  assert.equal(formatDocument(parseDocument(text)), text, 'causal fmt would be a no-op');
+});
+
+test('a title is carried into meta when supplied', () => {
+  const withTitle = validate(newModelDocument({ profile: 'dag', title: 'Smoking' })).document!;
+  assert.equal(withTitle.meta?.title, 'Smoking');
+  assert.equal(validate(newModelDocument({ profile: 'dag' })).document!.meta, undefined);
+});
+
+test('file names gain the extension that activates the editor', () => {
+  for (const [input, expected] of [
+    ['model', 'model.causal.json'],
+    ['model.json', 'model.causal.json'],
+    ['model.causal', 'model.causal.json'],
+    ['model.causal.json', 'model.causal.json'],
+    ['  spaced  ', 'spaced.causal.json'],
+  ] as const) {
+    assert.equal(withCausalExtension(input), expected, input);
+  }
 });

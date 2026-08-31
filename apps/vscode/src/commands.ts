@@ -1,9 +1,11 @@
-import { mkdirSync, writeFileSync } from 'node:fs';
+import { existsSync, mkdirSync, writeFileSync } from 'node:fs';
 import { basename, dirname, join } from 'node:path';
 import * as vscode from 'vscode';
 import { formatDocument, loadConfig, parseDocument, validate } from '@vpavlyshyn/core';
 import { render, type OutputFormat } from '@vpavlyshyn/render';
+import type { ProfileName } from '@vpavlyshyn/spec';
 import type { ActiveDocument } from './active.js';
+import { newModelDocument, PROFILE_CHOICES, withCausalExtension } from './scaffold.js';
 import type { FigurePreview } from './preview.js';
 import { applyText } from './textEdit.js';
 
@@ -29,6 +31,7 @@ function outputDirectory(document: vscode.TextDocument): string {
   return folder ? join(folder.uri.fsPath, configured) : configured;
 }
 
+// @lat: [[extension#Causal Canvas extension#Commands]]
 export function registerCommands(
   context: vscode.ExtensionContext,
   active: ActiveDocument,
@@ -38,6 +41,69 @@ export function registerCommands(
   const register = (id: string, run: () => Promise<void> | void): void => {
     context.subscriptions.push(vscode.commands.registerCommand(id, run));
   };
+
+  register('causalCanvas.newModel', async (target?: vscode.Uri) => {
+    const picked = await vscode.window.showQuickPick(
+      PROFILE_CHOICES.map((choice) => ({ label: choice.label, detail: choice.detail })),
+      { placeHolder: 'Structural profile for the new model' },
+    );
+    if (!picked) return;
+    const profile = picked.label as ProfileName;
+
+    const name = await vscode.window.showInputBox({
+      prompt: 'File name',
+      value: 'model.causal.json',
+      valueSelection: [0, 5],
+      validateInput: (candidate) =>
+        candidate.trim().length === 0 ? 'A file name is required' : undefined,
+    });
+    if (!name) return;
+
+    // Invoked from the explorer we get a folder; otherwise fall back to the
+    // workspace, and to a save dialog when there is no workspace at all.
+    let directory: string | undefined;
+    if (target) {
+      try {
+        const stat = await vscode.workspace.fs.stat(target);
+        directory =
+          stat.type === vscode.FileType.Directory ? target.fsPath : dirname(target.fsPath);
+      } catch {
+        directory = dirname(target.fsPath);
+      }
+    }
+    directory ??= vscode.workspace.workspaceFolders?.[0]?.uri.fsPath;
+
+    let destination: vscode.Uri;
+    if (directory) {
+      destination = vscode.Uri.file(join(directory, withCausalExtension(name)));
+    } else {
+      const chosen = await vscode.window.showSaveDialog({
+        saveLabel: 'Create model',
+        filters: { 'Causal model': ['causal.json'] },
+      });
+      if (!chosen) return;
+      destination = vscode.Uri.file(withCausalExtension(chosen.fsPath));
+    }
+
+    if (existsSync(destination.fsPath)) {
+      void vscode.window.showErrorMessage(
+        `Causal Canvas: ${basename(destination.fsPath)} already exists.`,
+      );
+      return;
+    }
+
+    try {
+      mkdirSync(dirname(destination.fsPath), { recursive: true });
+      writeFileSync(destination.fsPath, newModelDocument({ profile }), { flag: 'wx' });
+    } catch (cause) {
+      void vscode.window.showErrorMessage(
+        `Causal Canvas: could not create the model — ${cause instanceof Error ? cause.message : String(cause)}`,
+      );
+      return;
+    }
+
+    await vscode.commands.executeCommand('vscode.openWith', destination, 'causalCanvas.editor');
+  });
 
   register('causalCanvas.render', async () => {
     const document = await requireDocument(active);

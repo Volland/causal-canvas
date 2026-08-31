@@ -7,5 +7,5 @@
     "lib": ["ES2023", "DOM"],
     "types": ["node"]
   },
-  "include": ["src/protocol.ts", "src/scene.ts", "src/diff.ts", "src/*.test.ts"]
+  "include": ["src/protocol.ts", "src/scene.ts", "src/diff.ts", "src/scaffold.ts", "src/*.test.ts"]
 }

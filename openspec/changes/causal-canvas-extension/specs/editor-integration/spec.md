@@ -79,6 +79,32 @@ The extension SHALL contribute commands to render the active view to a chosen fo
 - **WHEN** the active editor holds a file that is not CausalJSON
 - **THEN** the document commands are not offered
 
+### Requirement: Authors can create a new model from the editor
+
+The extension SHALL contribute a command that creates a new CausalJSON document and opens it. The command SHALL be available when no CausalJSON document is open, and SHALL let the author choose the structural profile.
+
+The created document SHALL validate with no error-severity diagnostics and SHALL declare the format version, a profile, and a view, so the canvas has something to present immediately.
+
+#### Scenario: Creating a model
+
+- **WHEN** the author invokes the new-model command, chooses a profile, and supplies a name
+- **THEN** a document is written with that profile, and it opens in the visual editor
+
+#### Scenario: The command does not require an open model
+
+- **WHEN** no CausalJSON document is open
+- **THEN** the new-model command is still offered
+
+#### Scenario: The created document is valid
+
+- **WHEN** a model is created for any supported profile
+- **THEN** validating it produces no error-severity diagnostics
+
+#### Scenario: Refusing to overwrite
+
+- **WHEN** the chosen filename already exists
+- **THEN** the author is told and no file is written
+
 ### Requirement: Extension behaviour is configurable
 
 The extension SHALL expose settings for the figure format used by the render command, the output directory for rendered figures, and whether the preview opens automatically.

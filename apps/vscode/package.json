@@ -2,7 +2,7 @@
   "name": "causal-canvas",
   "displayName": "Causal Canvas",
   "description": "Visual editor, linting, and figure rendering for CausalJSON causal models",
-  "version": "0.1.0",
+  "version": "0.1.1",
   "license": "Apache-2.0",
   "publisher": "pavlyshyn",
   "private": true,
@@ -18,7 +18,8 @@
   ],
   "main": "./dist/extension.cjs",
   "activationEvents": [
-    "workspaceContains:**/*.causal.json"
+    "workspaceContains:**/*.causal.json",
+    "onCommand:causalCanvas.newModel"
   ],
   "scripts": {
     "build": "node esbuild.mjs",
@@ -47,6 +48,11 @@
       }
     ],
     "commands": [
+      {
+        "command": "causalCanvas.newModel",
+        "title": "New Causal Model",
+        "category": "Causal Canvas"
+      },
       {
         "command": "causalCanvas.render",
         "title": "Render Figure",
@@ -94,6 +100,19 @@
         {
           "command": "causalCanvas.openInTextEditor",
           "when": "causalCanvas.isCausalDocument"
+        }
+      ],
+      "explorer/context": [
+        {
+          "command": "causalCanvas.newModel",
+          "group": "navigation@10",
+          "when": "explorerResourceIsFolder"
+        }
+      ],
+      "file/newFile": [
+        {
+          "command": "causalCanvas.newModel",
+          "group": "file"
         }
       ]
     },
